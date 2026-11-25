@@ -1,0 +1,27 @@
+{
+  "name": "biblioteca-estudos-amazonia-2030",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Biblioteca digital interativa dos estudos do Amazônia 2030",
+  "type": "module",
+  "scripts": {
+    "assets": "python3 scripts/prepare_assets.py --sources ./fontes",
+    "check:data": "node scripts/validate-data.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "node build.mjs",
+    "dev": "node serve.mjs dist",
+    "test": "node tests/run.mjs"
+  },
+  "dependencies": {
+    "pdfjs-dist": "6.2.108",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "esbuild": "0.28.2",
+    "playwright": "1.63.0",
+    "typescript": "^6.0.0"
+  }
+}

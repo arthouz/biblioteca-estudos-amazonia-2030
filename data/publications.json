@@ -1,0 +1,1068 @@
+{
+  "schemaVersion": 1,
+  "collection": {
+    "name": "Biblioteca de Estudos Amazônia 2030",
+    "note": "Coleção de teste com oito estudos. Campos 'null' ou listados em 'unidentified' significam que o dado não foi identificado no PDF."
+  },
+  "publications": [
+    {
+      "id": "portas-entrada-emprego-formal",
+      "number": 87,
+      "title": "As portas de entrada do emprego formal na Amazônia",
+      "subtitle": null,
+      "authors": [
+        {
+          "name": "Gustavo Gonzaga",
+          "affiliation": "PUC-Rio (professor associado e coordenador de Pós-Graduação do Departamento de Economia; coordenador do projeto Data Zoom)"
+        },
+        {
+          "name": "Vinicius Sá",
+          "affiliation": "PUC-Rio (doutorando em Economia)"
+        }
+      ],
+      "year": 2026,
+      "yearBasis": "fonte-secundaria",
+      "yearNote": "Ano 2026 conforme a 'Lista de estudos AMZ2030' em Fatos da Amazônia 2026; o título interno do arquivo indica '2026_03'. O PDF não imprime o ano na capa.",
+      "analysisPeriod": "Rais 2018 (ano-base); população: Censo 2022",
+      "institutions": [
+        {
+          "name": "Amazônia 2030",
+          "role": "publicação"
+        },
+        {
+          "name": "PUC-Rio",
+          "role": "afiliação dos autores"
+        }
+      ],
+      "funders": [
+        "Instituto Clima e Sociedade (ICS)",
+        "Instituto Itaúsa"
+      ],
+      "series": "Amazônia 2030 · nº 87",
+      "publicationType": "Relatório de pesquisa",
+      "language": "pt-BR",
+      "categories": {
+        "primary": "desenvolvimento-social",
+        "secondary": [
+          "economia-desenvolvimento"
+        ]
+      },
+      "subcategory": "Mercado de trabalho formal",
+      "territories": [
+        "Amazônia Legal"
+      ],
+      "territoryNote": "Amazônia Legal em comparação com o restante do Brasil",
+      "keywords": [
+        "Dados",
+        "trabalho",
+        "emprego",
+        "renda",
+        "jovens",
+        "adultos",
+        "desalento",
+        "funcionalismo público",
+        "Amazônia Legal",
+        "economia"
+      ],
+      "keywordsSource": "oficial",
+      "topic": "Estrutura do emprego formal na Amazônia Legal, com foco em trabalhadores com ensino superior e no peso do setor público.",
+      "summary": {
+        "synthesis": "Descreve a estrutura do emprego formal na Amazônia Legal e a compara com a do restante do Brasil, com foco em trabalhadores com ensino superior completo. A região concentra 13% da população do país, mas apenas 9% dos empregos formais. Entre os trabalhadores formais com ensino superior, 67,4% estão no setor público na Amazônia Legal, contra 42,4% no restante do Brasil, com peso maior dos governos estaduais. O prêmio salarial do setor público sobre o privado é de 46,0% na região e de 28,6% no restante do país.",
+        "official": null
+      },
+      "questions": [
+        "Qual a participação relativa dos setores público e privado no emprego formal?",
+        "Como o emprego público se distribui entre as esferas de governo?",
+        "Quais os diferenciais de remuneração entre setor público e privado para quem tem ensino superior?"
+      ],
+      "methods": [
+        "Microdados da Relação Anual de Informações Sociais (Rais), ano-base 2018, com resultados no nível do indivíduo (contrato de maior salário anual)",
+        "Estimativa de prêmios salariais do setor público com controles por características observáveis",
+        "População: Censo 2022"
+      ],
+      "findings": [
+        "67,4% dos empregados formais com ensino superior estão no setor público na Amazônia Legal (42,4% no restante do Brasil)",
+        "Governos estaduais concentram 42,5% dos empregados públicos com ensino superior (33,1% no restante do Brasil)",
+        "Prêmio salarial do setor público: 46,0% na Amazônia Legal e 28,6% no restante do país; no nível estadual, 55,7% contra 12,7%",
+        "Entre servidores estaduais com ensino superior, 29,2% estão em ocupações administrativas (10,2% no restante do país)"
+      ],
+      "identifier": {
+        "doi": "10.59346/portas_entrada_emprego_amazonia",
+        "isbn": null,
+        "url": "https://doi.org/10.59346/portas_entrada_emprego_amazonia",
+        "source": "Lista de estudos AMZ2030 em Fatos da Amazônia 2026 (fonte secundária; não impresso neste PDF)"
+      },
+      "relatedVersions": [],
+      "officialUrl": null,
+      "files": {
+        "pdf": "pdfs/portas-entrada-emprego-formal.pdf",
+        "source": "As-portas-de-entrada-do-emprego-formal-na-Amazonia.pdf",
+        "bytes": 1935893,
+        "pages": 19,
+        "sha256": "6b985c3296e36ce9e2aaafcbb9aa93c4e6707ee256441c996feb9baa8d1f78fb",
+        "pageSizePt": [
+          595.3,
+          841.9
+        ]
+      },
+      "unidentified": [
+        "subtítulo",
+        "ISBN",
+        "DOI impresso no próprio PDF"
+      ],
+      "notes": [
+        "Palavras-chave oficiais preservadas como impressas no PDF (incluem 'jovens', 'adultos' e 'desalento')."
+      ],
+      "cover": {
+        "large": "covers/portas-entrada-emprego-formal.webp",
+        "thumb": "covers/portas-entrada-emprego-formal-thumb.webp",
+        "width": 960,
+        "height": 1357,
+        "source": "Página 1 do PDF (capa original)",
+        "alt": "Capa do estudo As portas de entrada do emprego formal na Amazônia",
+        "spineColor": "#3b487a",
+        "spineText": "#ffffff"
+      }
+    },
+    {
+      "id": "ips-brasil-2026",
+      "number": 88,
+      "title": "Índice de Progresso Social Brasil 2026",
+      "subtitle": "Qualidade de vida nos 5.570 municípios do Brasil",
+      "authors": [
+        {
+          "name": "Melissa Wilm",
+          "affiliation": null
+        },
+        {
+          "name": "Daniel Santos",
+          "affiliation": null
+        },
+        {
+          "name": "Luana Coelho",
+          "affiliation": null
+        },
+        {
+          "name": "Sérgio Marangoni",
+          "affiliation": null
+        },
+        {
+          "name": "Ricardo Chaves Lima",
+          "affiliation": null
+        },
+        {
+          "name": "Gabriel Gonçalves",
+          "affiliation": null
+        },
+        {
+          "name": "Beto Verissimo",
+          "affiliation": null
+        }
+      ],
+      "year": 2026,
+      "yearBasis": "impresso",
+      "yearNote": "Ano impresso na capa e na ficha catalográfica (Belém, PA: Imazon, 2026).",
+      "analysisPeriod": "Edição 2026 do índice, com série histórica 2024–2026",
+      "institutions": [
+        {
+          "name": "Instituto de Progresso Social Brasil (Instituto IPS)",
+          "role": "realização"
+        },
+        {
+          "name": "Social Progress Imperative",
+          "role": "realização"
+        },
+        {
+          "name": "Imazon",
+          "role": "publicação"
+        },
+        {
+          "name": "Amazônia 2030",
+          "role": "realização"
+        },
+        {
+          "name": "Fundación Avina",
+          "role": "realização"
+        },
+        {
+          "name": "Centro de Empreendedorismo da Amazônia",
+          "role": "realização"
+        }
+      ],
+      "funders": [],
+      "series": "Amazônia 2030 · nº 88; Índice de Progresso Social Brasil (3ª edição)",
+      "publicationType": "Relatório de índice",
+      "language": "pt-BR",
+      "categories": {
+        "primary": "desenvolvimento-social",
+        "secondary": []
+      },
+      "subcategory": "Índice de Progresso Social",
+      "territories": [
+        "Brasil"
+      ],
+      "territoryNote": "5.570 municípios brasileiros (ver nota sobre exclusões)",
+      "keywords": [
+        "progresso social",
+        "qualidade de vida",
+        "municípios",
+        "indicadores sociais e ambientais",
+        "IPS Brasil",
+        "políticas públicas"
+      ],
+      "keywordsSource": "aplicacao",
+      "topic": "Medição do desempenho social e ambiental dos municípios brasileiros por meio do Índice de Progresso Social.",
+      "summary": {
+        "synthesis": "Terceiro relatório do IPS Brasil (após 2024 e 2025), que mede o desempenho social e ambiental dos municípios brasileiros com 57 indicadores, organizados em 12 componentes e três dimensões, em escala de 0 a 100. O Brasil atingiu pontuação média de 63,40, com progresso sutil entre 2025 e 2026. Necessidades Humanas Básicas teve a melhor média (74,58), seguida de Fundamentos do Bem-estar (68,81); Oportunidades teve a mais baixa (46,82), padrão já observado nas edições anteriores.",
+        "official": {
+          "text": "O Índice de Progresso Social (IPS) é uma ferramenta que mede o desempenho social e ambiental de territórios em todas as geografias (países, estados, municípios e até comunidades).",
+          "page": "p. 5 (Resumo)"
+        }
+      },
+      "questions": [
+        "Qual o desempenho social e ambiental dos municípios brasileiros?",
+        "Como o índice evoluiu entre as edições 2024, 2025 e 2026?",
+        "Qual a relação entre progresso social e desenvolvimento econômico nos municípios?"
+      ],
+      "methods": [
+        "Índice composto por 57 indicadores sociais e ambientais de fontes públicas, em escala de 0 a 100",
+        "Três dimensões (Necessidades Humanas Básicas, Fundamentos do Bem-estar, Oportunidades) e 12 componentes",
+        "Metodologia do Social Progress Imperative, aplicada em escala municipal"
+      ],
+      "findings": [
+        "Pontuação média do Brasil: 63,40 (escala de 0 a 100)",
+        "Dimensões: Necessidades Humanas Básicas 74,58; Fundamentos do Bem-estar 68,81; Oportunidades 46,82",
+        "Componentes mais altos: Moradia (87,95) e Acesso à Informação e Comunicação (79,81)",
+        "Componentes mais baixos: Direitos Individuais (39,14), Acesso à Educação Superior (45,97) e Inclusão Social (47,22)"
+      ],
+      "identifier": {
+        "doi": "10.59346/IPS_Brasil_2026",
+        "isbn": "978-65-89617-40-2",
+        "url": "https://doi.org/10.59346/IPS_Brasil_2026",
+        "source": "ISBN impresso no PDF (ficha catalográfica); DOI da Lista de estudos AMZ2030 em Fatos da Amazônia 2026 (fonte secundária)"
+      },
+      "relatedVersions": [],
+      "officialUrl": null,
+      "files": {
+        "pdf": "pdfs/ips-brasil-2026.pdf",
+        "source": "IPS-Brasil-2026_compressed.pdf",
+        "bytes": 5381421,
+        "pages": 55,
+        "sha256": "b85efa9cb9a2a3a9f2e1f7da3bc4aa83a70e47371cb7375995e25f6280e6da40",
+        "pageSizePt": [
+          595.5,
+          842.3
+        ]
+      },
+      "unidentified": [
+        "afiliação institucional individual dos autores neste PDF",
+        "apoiadores (aparecem apenas como logotipos)"
+      ],
+      "notes": [
+        "O arquivo recebido é uma versão comprimida (nome 'compressed') do relatório completo.",
+        "Cobertura: 5.568 municípios mais Brasília (DF) e Fernando de Noronha (PE); Boa Esperança do Norte (MT) ficou de fora por ter sido criado em 2025.",
+        "A grafia 'Beto Verissimo' (sem acento) segue a lista de autores impressa neste PDF."
+      ],
+      "cover": {
+        "large": "covers/ips-brasil-2026.webp",
+        "thumb": "covers/ips-brasil-2026-thumb.webp",
+        "width": 960,
+        "height": 1358,
+        "source": "Página 1 do PDF (capa original)",
+        "alt": "Capa do estudo Índice de Progresso Social Brasil 2026",
+        "spineColor": "#ec9f63",
+        "spineText": "#0a0a0a"
+      }
+    },
+    {
+      "id": "rematamento-produtivo",
+      "number": 89,
+      "title": "Rematamento Produtivo, Conservação e Desenvolvimento Econômico na Amazônia Brasileira",
+      "subtitle": null,
+      "authors": [
+        {
+          "name": "Salo Coslovsky",
+          "affiliation": "Universidade de Nova York (professor associado)"
+        }
+      ],
+      "year": 2025,
+      "yearBasis": "fonte-secundaria",
+      "yearNote": "Ano 2025 conforme a 'Lista de estudos AMZ2030' em Fatos da Amazônia 2026. O PDF não imprime o ano na capa, e o arquivo foi gerado em junho de 2026, o que sugere uma versão diagramada posterior.",
+      "analysisPeriod": "Séries históricas até 2024; fontes consultadas até outubro de 2025",
+      "institutions": [
+        {
+          "name": "Amazônia 2030",
+          "role": "publicação"
+        },
+        {
+          "name": "Universidade de Nova York (NYU)",
+          "role": "afiliação do autor"
+        }
+      ],
+      "funders": [
+        "Instituto Clima e Sociedade (ICS)",
+        "Instituto Arapyaú",
+        "Instituto Itaúsa"
+      ],
+      "series": "Amazônia 2030 · nº 89",
+      "publicationType": "Relatório de pesquisa",
+      "language": "pt-BR",
+      "categories": {
+        "primary": "economia-desenvolvimento",
+        "secondary": [
+          "desmatamento-conservacao",
+          "agropecuaria-cadeias"
+        ]
+      },
+      "subcategory": "Rematamento produtivo",
+      "territories": [
+        "Amazônia Legal"
+      ],
+      "territoryNote": "Amazônia brasileira (áreas já desmatadas)",
+      "keywords": [
+        "Amazônia",
+        "Reflorestamento",
+        "Rematamento",
+        "Reordenamento",
+        "Regularização fundiária",
+        "Mercado de carbono",
+        "Produtos compatíveis com a floresta",
+        "Produtos florestais não madeireiros",
+        "Política pública"
+      ],
+      "keywordsSource": "oficial",
+      "topic": "Conversão de áreas já desmatadas e pastagens degradadas em sistemas produtivos de espécies perenes como estratégia de emprego, renda e conservação.",
+      "summary": {
+        "synthesis": "Propõe o rematamento produtivo: converter terrenos desmatados e pastagens degradadas em sistemas produtivos baseados em espécies perenes, o que inclui restauração remunerada por créditos de carbono, reflorestamento para fibras e MDF, sistemas agroflorestais e agricultura de alto valor. Diferente da restauração, mede o sucesso por empregos e renda, não por hectares restaurados. O estudo argumenta que há mercado (consumidores gastam US$ 230 bilhões por ano em produtos típicos, como cacau, açaí, óleo de palma e frutas tropicais) e propõe quatro frentes: regime regulatório especial, esforço diplomático de comércio exterior, mobilização do Sistema Nacional de Inovação e fortalecimento das Mesas Executivas.",
+        "official": {
+          "text": "Os moradores da região amazônica convivem com índices de emprego, renda e qualidade de vida notavelmente inferiores aos do restante do Brasil. Diante dessa situação econômica precária, um número crescente deles têm apoiado iniciativas que prometem desenvolvimento econômico independente de seu custo ambiental.",
+          "page": "p. 2 (Sumário executivo)"
+        }
+      },
+      "questions": [
+        "Como superar o impasse entre sociobioeconomia sem escala e financiamento climático sem foco em emprego e renda?",
+        "Qual o potencial de geração de empregos e renda do rematamento nas áreas já desmatadas?",
+        "Quais mudanças de política pública podem viabilizar o rematamento em escala?"
+      ],
+      "methods": [
+        "Análise de mercado e de exportações de produtos típicos do rematamento (códigos HS6)",
+        "Mapeamento de áreas disponíveis e de municípios com desmatamento antigo",
+        "Revisão de órgãos e instrumentos públicos de fomento (Embrapa, BNDES, Plano Safra, Finep, Fundo Clima, EcoInvest)"
+      ],
+      "findings": [
+        "Consumidores no Brasil e no mundo gastam cerca de US$ 230 bilhões por ano em produtos típicos do rematamento",
+        "Empreendimentos sediados na Amazônia já faturam cerca de US$ 7,2 bilhões por ano com esses produtos",
+        "Intensificar a pecuária nas áreas desmatadas liberaria 37 milhões de hectares para outros usos sem prejuízo à produção de carne",
+        "Quatro frentes de política: regime regulatório especial, diplomacia comercial, Sistema Nacional de Inovação e Mesas Executivas"
+      ],
+      "identifier": {
+        "doi": "10.59346/rematamento_produtivo_desenvolvimento_amazonia_brasileira",
+        "isbn": null,
+        "url": "https://doi.org/10.59346/rematamento_produtivo_desenvolvimento_amazonia_brasileira",
+        "source": "Lista de estudos AMZ2030 em Fatos da Amazônia 2026 (fonte secundária)"
+      },
+      "relatedVersions": [
+        {
+          "title": "Para Proteger a Floresta Amazônica, Precisamos Rematar as Áreas Desmatadas",
+          "kind": "versão resumida (nota de política pública)",
+          "reference": "Coslovsky e Veríssimo, Amazônia 2030, 2025. DOI 10.59346/rematamento_amazonia_brasileira_npp (fonte: Fatos da Amazônia 2026)"
+        },
+        {
+          "title": "O reflorestamento produtivo e a Amazônia",
+          "kind": "artigo de jornal (versão resumida)",
+          "reference": "Valor Econômico, 23 de outubro de 2024, com Denis Minev e Pedro Wongtschowski (fonte: agradecimentos do próprio PDF)"
+        }
+      ],
+      "officialUrl": null,
+      "files": {
+        "pdf": "pdfs/rematamento-produtivo.pdf",
+        "source": "Rematamento-Produtivo.pdf",
+        "bytes": 31407047,
+        "pages": 73,
+        "sha256": "97903cfafd22738b95b7631f30a4674472c7a26f7231c1e77aee17efc1e41019",
+        "pageSizePt": [
+          538.6,
+          737.0
+        ]
+      },
+      "unidentified": [
+        "subtítulo",
+        "ano impresso",
+        "ISBN"
+      ],
+      "notes": [
+        "Divergência de autoria: neste PDF consta apenas Salo Coslovsky como autor; a lista em Fatos da Amazônia 2026 registra Coslovsky e Veríssimo. Prevalece o que está impresso no PDF.",
+        "Palavra-chave impressa como 'maderereiros' no PDF; grafia corrigida para 'madeireiros' na biblioteca."
+      ],
+      "cover": {
+        "large": "covers/rematamento-produtivo.webp",
+        "thumb": "covers/rematamento-produtivo-thumb.webp",
+        "width": 960,
+        "height": 1313,
+        "source": "Página 1 do PDF (capa original)",
+        "alt": "Capa do estudo Rematamento Produtivo, Conservação e Desenvolvimento Econômico na Amazônia Brasileira",
+        "spineColor": "#286e73",
+        "spineText": "#ffffff"
+      }
+    },
+    {
+      "id": "agricultura-amazonia-legal",
+      "number": 90,
+      "title": "Agricultura na Amazônia Legal",
+      "subtitle": "Condições de produtividade, riscos climáticos e propostas para produzir melhor em áreas já abertas",
+      "authors": [
+        {
+          "name": "Paulo Barreto",
+          "affiliation": "Imazon (co-fundador e pesquisador associado)"
+        },
+        {
+          "name": "Ritaumaria Pereira",
+          "affiliation": "Imazon (diretora executiva e pesquisadora)"
+        },
+        {
+          "name": "Gabriel Salles Barreto",
+          "affiliation": null
+        }
+      ],
+      "year": 2026,
+      "yearBasis": "fonte-secundaria",
+      "yearNote": "Ano 2026 conforme a 'Lista de estudos AMZ2030' em Fatos da Amazônia 2026; as referências do próprio PDF têm acesso em junho e julho de 2026.",
+      "analysisPeriod": "Dados de 2024 (produção agrícola) e séries de 2007–2021 (mandioca em Rondônia); perdas climáticas 2021–2024",
+      "institutions": [
+        {
+          "name": "Imazon",
+          "role": "afiliação dos autores"
+        },
+        {
+          "name": "Amazônia 2030",
+          "role": "publicação"
+        }
+      ],
+      "funders": [],
+      "series": "Amazônia 2030 · nº 90",
+      "publicationType": "Relatório de pesquisa",
+      "language": "pt-BR",
+      "categories": {
+        "primary": "agropecuaria-cadeias",
+        "secondary": [
+          "desmatamento-conservacao"
+        ]
+      },
+      "subcategory": "Produtividade e risco climático",
+      "territories": [
+        "Amazônia Legal"
+      ],
+      "territoryNote": "Amazônia Legal; quando a fonte estatística abrange só a região Norte ou o bioma, o recorte é informado no texto",
+      "keywords": [
+        "agricultura",
+        "produtividade",
+        "riscos climáticos",
+        "áreas já abertas",
+        "mandioca",
+        "soja",
+        "milho",
+        "assistência técnica",
+        "compras públicas",
+        "seguro rural"
+      ],
+      "keywordsSource": "aplicacao",
+      "topic": "Produtividade agrícola, vulnerabilidade climática e políticas para produzir mais nas áreas já abertas sem novo desmatamento.",
+      "summary": {
+        "synthesis": "Avalia as condições da agricultura na Amazônia Legal e propõe medidas para elevar a produtividade nas áreas já abertas, reduzir a vulnerabilidade a eventos climáticos e evitar que a expansão da produção dependa de novo desmatamento. Compara grãos, que alcançam rendimentos próximos aos das áreas mais produtivas do país onde há um sistema integrado de pesquisa, crédito, assistência e logística, com a mandioca, cultura central da agricultura familiar. Cinco recomendações: arranjos estáveis de financiamento e difusão tecnológica, resiliência de pequenos produtores isolados, infraestrutura escolhida por retorno local e risco evitado, pesquisa em adaptação climática e tratamento da floresta como infraestrutura natural da produção.",
+        "official": {
+          "text": "A política agrícola para a Amazônia Legal precisa aumentar a produção nas áreas já abertas, reduzir as perdas causadas pelo clima e conservar a floresta que ajuda a regular as chuvas.",
+          "page": "p. 4 (Sumário executivo)"
+        }
+      },
+      "questions": [
+        "O que determina a produtividade agrícola na Amazônia Legal?",
+        "Por que soja e milho alcançam rendimentos próximos aos de outras regiões e a mandioca não?",
+        "Como reduzir perdas climáticas e conservar a floresta que regula as chuvas?"
+      ],
+      "methods": [
+        "Diagnóstico com dados de produtividade municipal (soja, milho, mandioca) e de infraestrutura",
+        "Estudo de caso da mandioca em Rondônia (rendimento de 2007 a 2021)",
+        "Análise de mecanismos de política: assistência técnica, crédito, compras públicas, seguro rural e zoneamento de risco climático"
+      ],
+      "findings": [
+        "A agropecuária empregava cerca de 1,8 milhão de pessoas em 2019 (17% da população ocupada, contra 8% no restante do país)",
+        "Em Rondônia, o rendimento da mandioca subiu de cerca de 17 para cerca de 24 toneladas por hectare entre 2007 e 2021; no Pará, ficou perto de 15 toneladas por hectare em 2024",
+        "Em 2017, cerca de 10% dos estabelecimentos rurais do Norte recebiam assistência técnica; só 9% dos agricultores familiares da região acessavam crédito, contra 29% no Sul",
+        "Prejuízos agropecuários declarados na Amazônia Legal: média anual próxima de R$ 6 bilhões entre 2021 e 2024"
+      ],
+      "identifier": {
+        "doi": "10.59346/agricultura_amazonia_legal_propostas",
+        "isbn": null,
+        "url": "https://doi.org/10.59346/agricultura_amazonia_legal_propostas",
+        "source": "Lista de estudos AMZ2030 em Fatos da Amazônia 2026 (fonte secundária)"
+      },
+      "relatedVersions": [],
+      "officialUrl": null,
+      "files": {
+        "pdf": "pdfs/agricultura-amazonia-legal.pdf",
+        "source": "AGRICULTURA-NA-AMAZÔNIA-LEGAL.pdf",
+        "bytes": 14577155,
+        "pages": 79,
+        "sha256": "e7558ebba8ace23b61fcc4fe897fea3fafd303c4d492aff9a2458bec6046ad98",
+        "pageSizePt": [
+          595.3,
+          841.9
+        ]
+      },
+      "unidentified": [
+        "afiliação de Gabriel Salles Barreto",
+        "apoio financeiro",
+        "ano impresso",
+        "ISBN"
+      ],
+      "notes": [
+        "Palavras-chave não constam do PDF; foram elaboradas pela biblioteca."
+      ],
+      "cover": {
+        "large": "covers/agricultura-amazonia-legal.webp",
+        "thumb": "covers/agricultura-amazonia-legal-thumb.webp",
+        "width": 960,
+        "height": 1357,
+        "source": "Página 1 do PDF (capa original)",
+        "alt": "Capa do estudo Agricultura na Amazônia Legal",
+        "spineColor": "#705533",
+        "spineText": "#ffffff"
+      }
+    },
+    {
+      "id": "novas-ameacas-desmatamento",
+      "number": 92,
+      "title": "Novas Ameaças ao Desmatamento da Amazônia",
+      "subtitle": "Impactos Esperados das Rodovias BR-364 e BR-319 e das Ferrovias FICO 1 e Ferrovia Estadual do Mato Grosso",
+      "authors": [
+        {
+          "name": "Gustavo R. S. Pinto",
+          "affiliation": "CPI/PUC-Rio (gerente de pesquisa)"
+        },
+        {
+          "name": "João Pedro F. Arbache",
+          "affiliation": "CPI/PUC-Rio (analista sênior)"
+        },
+        {
+          "name": "Cláudio R. Frischtak",
+          "affiliation": "International Growth Center (LSE/Oxford); Inter.B Consultoria"
+        }
+      ],
+      "year": 2026,
+      "yearBasis": "impresso",
+      "yearNote": "Ano impresso na citação sugerida (Rio de Janeiro: Climate Policy Initiative e Amazônia 2030, 2026).",
+      "analysisPeriod": "Projetos em execução; previsão de conclusão de um dos projetos em 2030",
+      "institutions": [
+        {
+          "name": "Climate Policy Initiative (CPI/PUC-Rio)",
+          "role": "publicação"
+        },
+        {
+          "name": "Amazônia 2030",
+          "role": "publicação"
+        },
+        {
+          "name": "International Growth Center (LSE/Oxford)",
+          "role": "afiliação de autor"
+        }
+      ],
+      "funders": [
+        "Fundação Itaúsa",
+        "Instituto Clima e Sociedade"
+      ],
+      "series": "Amazônia 2030 · nº 92",
+      "publicationType": "Relatório de pesquisa",
+      "language": "pt-BR",
+      "categories": {
+        "primary": "desmatamento-conservacao",
+        "secondary": [
+          "infraestrutura-logistica",
+          "governanca-politicas"
+        ]
+      },
+      "subcategory": "Infraestrutura e pressão sobre a floresta",
+      "territories": [
+        "Amazônia Legal"
+      ],
+      "territoryNote": "Rondônia (BR-364), Amazonas (BR-319), Mato Grosso (FICO 1 e Ferrovia Estadual); 302 municípios das regiões Norte e Centro-Oeste",
+      "keywords": [
+        "desmatamento",
+        "infraestrutura de transportes",
+        "BR-319",
+        "BR-364",
+        "FICO",
+        "acesso a mercado",
+        "glebas públicas não destinadas",
+        "crime organizado",
+        "ordenamento territorial"
+      ],
+      "keywordsSource": "aplicacao",
+      "topic": "Riscos de desmatamento associados a quatro grandes obras de transporte na Amazônia Legal.",
+      "summary": {
+        "synthesis": "Analisa o impacto, a abrangência e os riscos de quatro obras de transporte: a modernização da BR-364 em Rondônia, o asfaltamento do 'trecho do meio' da BR-319 no Amazonas, a Ferrovia Estadual do Mato Grosso e o trecho inicial da FICO 1. As obras elevam de forma relevante a acessibilidade de 302 municípios do Norte e do Centro-Oeste. Na área de influência, cerca de 44 milhões de hectares de floresta estão em glebas públicas sem destinação formal, categoria associada à alta vulnerabilidade ao desmatamento e à expansão da criminalidade. O estudo defende a destinação dessas terras como medida prioritária, com salvaguardas de ordenamento territorial, conservação e combate à criminalidade.",
+        "official": null
+      },
+      "questions": [
+        "Quais municípios terão o acesso a mercado ampliado pelas obras?",
+        "Quanta floresta e quanta terra pública não destinada estão na área de influência dos projetos?",
+        "Que riscos de desmatamento e de expansão de economias criminosas decorrem das obras?",
+        "Que medidas de mitigação devem acompanhá-las?"
+      ],
+      "methods": [
+        "Métrica de acesso a mercado (variação equivalente do mercado consumidor de cada município) para delimitar a área de influência",
+        "Cruzamento dos ganhos de acesso a mercado com cobertura florestal e situação fundiária"
+      ],
+      "findings": [
+        "Os quatro projetos elevam a acessibilidade de 302 municípios das regiões Norte e Centro-Oeste",
+        "Cerca de 44 milhões de hectares de floresta, área equivalente ao Maranhão, estão em glebas públicas sem destinação formal na área de influência",
+        "Risco iminente à vegetação nativa, com destaque para o eixo entre Mato Grosso, Rondônia e Amazonas e para o entorno da BR-319",
+        "Recomenda-se a destinação urgente das glebas públicas e a integração do planejamento de transportes ao ordenamento territorial"
+      ],
+      "identifier": {
+        "doi": null,
+        "isbn": null,
+        "url": "https://bit.ly/infraestrutura-amazonia",
+        "source": "Link curto citado na nota 8 do estudo 'Planejamento e Priorização de Obras de Infraestrutura de Transportes com Base em Evidências' (que cita este trabalho). Não impresso neste PDF."
+      },
+      "relatedVersions": [
+        {
+          "title": "Planejamento e Priorização de Obras de Infraestrutura de Transportes com Base em Evidências",
+          "kind": "estudo complementar",
+          "reference": "Mesmos autores e mesma instituição (CPI/PUC-Rio e Amazônia 2030, 2026); cita este relatório e usa a mesma métrica de acesso a mercado"
+        }
+      ],
+      "officialUrl": null,
+      "files": {
+        "pdf": "pdfs/novas-ameacas-desmatamento.pdf",
+        "source": "Novas-Ameacas-ao-Desmatamento-da-Amazonia.pdf",
+        "bytes": 7650080,
+        "pages": 31,
+        "sha256": "83cd2062fa557404e870158d80ad7628589c1cc46a2c0687ce7e83bcd204cf2a",
+        "pageSizePt": [
+          595.3,
+          841.9
+        ]
+      },
+      "unidentified": [
+        "DOI",
+        "ISBN",
+        "palavras-chave oficiais"
+      ],
+      "notes": [],
+      "cover": {
+        "large": "covers/novas-ameacas-desmatamento.webp",
+        "thumb": "covers/novas-ameacas-desmatamento-thumb.webp",
+        "width": 960,
+        "height": 1357,
+        "source": "Página 1 do PDF (capa original)",
+        "alt": "Capa do estudo Novas Ameaças ao Desmatamento da Amazônia",
+        "spineColor": "#0a4535",
+        "spineText": "#ffffff"
+      }
+    },
+    {
+      "id": "amazonia-em-foco",
+      "number": 93,
+      "title": "Amazônia em Foco",
+      "subtitle": "Como Redirecionar Recursos Públicos para o Desenvolvimento Sustentável da Região",
+      "authors": [
+        {
+          "name": "Juliano Assunção",
+          "affiliation": "PUC-Rio (professor associado); Climate Policy Initiative (CPI) Brasil (diretor executivo); co-coordenador do Projeto Amazônia 2030"
+        },
+        {
+          "name": "Paulo Barreto",
+          "affiliation": "Imazon (co-fundador e pesquisador associado)"
+        },
+        {
+          "name": "Salo Coslovsky",
+          "affiliation": "Universidade de Nova York (professor associado)"
+        },
+        {
+          "name": "Beto Verissimo",
+          "affiliation": "Imazon (pesquisador sênior e co-fundador); Centro de Empreendedorismo da Amazônia (diretor); IPS Brasil (diretor geral); co-coordenador do Projeto Amazônia 2030"
+        },
+        {
+          "name": "Manuele Lima",
+          "affiliation": "Centro de Empreendedorismo da Amazônia (coordenadora de projetos)"
+        }
+      ],
+      "year": 2026,
+      "yearBasis": "inferido",
+      "yearNote": "Ano não impresso no PDF. Inferido de referências a 2026 no texto (inclusive evento de junho de 2026) e do arquivo gerado em setembro de 2026.",
+      "analysisPeriod": "Não identificado",
+      "institutions": [
+        {
+          "name": "Amazônia 2030",
+          "role": "publicação"
+        },
+        {
+          "name": "Climate Policy Initiative (CPI)",
+          "role": "parceiro"
+        },
+        {
+          "name": "Imazon",
+          "role": "afiliação dos autores"
+        },
+        {
+          "name": "Universidade de Nova York (NYU)",
+          "role": "afiliação de autor"
+        },
+        {
+          "name": "Centro de Empreendedorismo da Amazônia",
+          "role": "afiliação dos autores"
+        }
+      ],
+      "funders": [
+        "Instituto Clima e Sociedade (ICS)",
+        "Instituto Itaúsa",
+        "Good Energies Foundation"
+      ],
+      "series": "Amazônia 2030 · nº 93",
+      "publicationType": "Relatório de pesquisa",
+      "language": "pt-BR",
+      "categories": {
+        "primary": "governanca-politicas",
+        "secondary": [
+          "economia-desenvolvimento"
+        ]
+      },
+      "subcategory": "Crédito e incentivos fiscais",
+      "territories": [
+        "Amazônia Legal"
+      ],
+      "territoryNote": "Amazônia Legal",
+      "keywords": [
+        "Amazônia Legal",
+        "desenvolvimento sustentável",
+        "recursos públicos",
+        "incentivos econômicos",
+        "crédito rural",
+        "produtividade",
+        "desmatamento",
+        "bioeconomia",
+        "governança territorial",
+        "Zona Franca de Manaus",
+        "mineração"
+      ],
+      "keywordsSource": "oficial",
+      "topic": "Foco e eficiência dos recursos públicos de crédito e renúncia fiscal aplicados na Amazônia.",
+      "summary": {
+        "synthesis": "Analisa instrumentos de crédito e renúncia fiscal sob gestão do Ministério da Fazenda, entre eles o Fundo Constitucional de Financiamento do Norte (operado pelo Banco da Amazônia), a Zona Franca de Manaus e a Compensação Financeira pela Exploração Mineral. Argumenta que o problema não é a ausência do Estado na região, mas o foco e a eficiência de sua atuação, já que parte relevante dos recursos segue orientada para a expansão da fronteira, com baixa produtividade e retornos de curto prazo. Propõe redirecionar esses recursos para usos da terra mais intensivos e livres de desmatamento, desenvolver cidades onde a população já está, elevar a produtividade nas áreas já abertas e garantir soberania territorial e ambiente de negócios.",
+        "official": null
+      },
+      "questions": [
+        "Os recursos públicos aplicados na Amazônia estão orientados para o desenvolvimento sustentável?",
+        "Como o foco desses instrumentos pode ser ajustado para financiar usos da terra produtivos e livres de desmatamento?"
+      ],
+      "methods": [
+        "Análise de instrumentos de crédito e renúncia fiscal sob gestão do Ministério da Fazenda (FNO, Zona Franca de Manaus e CFEM)"
+      ],
+      "findings": [
+        "A leitura de 'ausência do Estado' é insuficiente: o Estado está presente por bancos públicos, fundos constitucionais, crédito subsidiado, incentivos fiscais e obras",
+        "Conter o desmatamento é necessário, mas insuficiente: é preciso transformar o que já foi desmatado, a floresta remanescente e a força de trabalho jovem em produtividade, renda e emprego"
+      ],
+      "identifier": {
+        "doi": null,
+        "isbn": null,
+        "url": null,
+        "source": "Não identificado"
+      },
+      "relatedVersions": [],
+      "officialUrl": null,
+      "files": {
+        "pdf": "pdfs/amazonia-em-foco.pdf",
+        "source": "Amazonia-em-Foco.pdf",
+        "bytes": 17908308,
+        "pages": 29,
+        "sha256": "138effd910e568b197ce491cfc4bf751ef17fd6c845607aef4375e7a5acff1cd",
+        "pageSizePt": [
+          595.3,
+          841.9
+        ]
+      },
+      "unidentified": [
+        "DOI",
+        "ISBN",
+        "ano impresso",
+        "período analisado",
+        "metodologia detalhada (resumida aqui apenas pelo escopo declarado na introdução)"
+      ],
+      "notes": [
+        "A grafia 'Beto Verissimo' (sem acento) segue a lista de autores impressa neste PDF."
+      ],
+      "cover": {
+        "large": "covers/amazonia-em-foco.webp",
+        "thumb": "covers/amazonia-em-foco-thumb.webp",
+        "width": 960,
+        "height": 1357,
+        "source": "Página 1 do PDF (capa original)",
+        "alt": "Capa do estudo Amazônia em Foco",
+        "spineColor": "#d4cd8c",
+        "spineText": "#0a0a0a"
+      }
+    },
+    {
+      "id": "mesas-executivas-pimenta-do-reino",
+      "number": 94,
+      "title": "Mesas Executivas",
+      "subtitle": "Oportunidades para aprimorar o setor de pimenta-do-reino no Pará",
+      "authors": [
+        {
+          "name": "Eduardo Roxo",
+          "affiliation": "Atina – Ativos Naturais Ltda (fundador e CEO)"
+        },
+        {
+          "name": "Salo Coslovsky",
+          "affiliation": "NYU Wagner (professor associado); pesquisador do Amazônia 2030"
+        }
+      ],
+      "year": 2026,
+      "yearBasis": "inferido",
+      "yearNote": "Ano não impresso no PDF. Inferido de entrevistas realizadas até maio de 2026, dados de 2026 nas referências e arquivo gerado em novembro de 2026.",
+      "analysisPeriod": "Séries de produção 1974–2024; exportações 1997–2026; entrevistas de julho de 2025 a maio de 2026",
+      "institutions": [
+        {
+          "name": "Amazônia 2030",
+          "role": "publicação"
+        },
+        {
+          "name": "NYU Wagner",
+          "role": "afiliação de autor"
+        },
+        {
+          "name": "Atina – Ativos Naturais Ltda",
+          "role": "afiliação de autor"
+        }
+      ],
+      "funders": [
+        "Instituto Clima e Sociedade (ICS)",
+        "Itaúsa",
+        "Instituto Arapyaú",
+        "Norsk Hydro"
+      ],
+      "series": "Amazônia 2030 · nº 94; série Mesas Executivas",
+      "publicationType": "Relatório de pesquisa",
+      "language": "pt-BR",
+      "categories": {
+        "primary": "agropecuaria-cadeias",
+        "secondary": [
+          "economia-desenvolvimento"
+        ]
+      },
+      "subcategory": "Cadeia da pimenta-do-reino",
+      "territories": [
+        "Pará"
+      ],
+      "territoryNote": "Pará, em comparação com o Espírito Santo",
+      "keywords": [
+        "pimenta-do-reino",
+        "Pará",
+        "Espírito Santo",
+        "cadeia produtiva",
+        "exportação",
+        "Mesa Executiva",
+        "competitividade",
+        "pós-colheita"
+      ],
+      "keywordsSource": "aplicacao",
+      "topic": "Declínio e possibilidades de recuperação do setor de pimenta-do-reino no Pará.",
+      "summary": {
+        "synthesis": "Analisa por que o Brasil perdeu espaço no comércio mundial de pimenta-do-reino e o Pará perdeu a liderança nacional, e examina como reverter esse movimento. Nos anos 1980, o Brasil respondia em média por 27% da produção e 24% das exportações globais, com mais de 90% do volume produzido no Pará. Entre 2013 e 2023, o Espírito Santo multiplicou sua produção em mais de dez vezes e hoje lidera, com cerca de 60% da produção contra 30% do Pará. A principal diferença está na organização dos ecossistemas produtivos. O estudo propõe criar uma Mesa Executiva da Pimenta-do-Reino no Pará, apoiada em soluções que já existem: difusão de conhecimento, crédito para renovar lavouras e melhor coordenação entre os agentes.",
+        "official": {
+          "text": "Nos anos 1980, o Brasil chegou a ser o maior produtor e exportador mundial de pimenta-do-reino, respondendo, em média, por 27% da produção e 24% das exportações globais ao longo da década.",
+          "page": "p. 3 (Sumário executivo)"
+        }
+      },
+      "questions": [
+        "Por que o Brasil perdeu espaço no mercado internacional de pimenta-do-reino?",
+        "Por que o Pará perdeu a liderança nacional para o Espírito Santo?",
+        "O que falta ao setor paraense e quais soluções já estão validadas?"
+      ],
+      "methods": [
+        "Seis entrevistas semiestruturadas com quatro especialistas (beneficiadora, consultoria técnica, indústria de alimentos e pesquisador da Embrapa), de julho de 2025 a maio de 2026",
+        "Dados oficiais do IBGE (PAM e Censo Agropecuário), Comex Stat, UN Comtrade e Faostat",
+        "Registros de alertas de qualidade da União Europeia (RASFF), relatório da Nedspice e censo dos pimentais paraenses de 2023 (Tropoc e Emater-PA)"
+      ],
+      "findings": [
+        "O Pará mantém 18 mil produtores, tradição de cultivo, clima e solo favoráveis, apoio da Embrapa, cinco beneficiadoras comerciais e uma cooperativa que atuam no mercado internacional",
+        "O Vietnã, que responde por 37% da produção global, e as exigências sanitárias da União Europeia pressionaram a posição do Brasil",
+        "O desafio imediato não exige tecnologia nova, e sim difusão do que já se sabe, crédito e coordenação entre os agentes",
+        "A criação de uma Mesa Executiva da Pimenta-do-Reino no Pará é um instrumento promissor de fomento"
+      ],
+      "identifier": {
+        "doi": null,
+        "isbn": null,
+        "url": null,
+        "source": "Não identificado"
+      },
+      "relatedVersions": [
+        {
+          "title": "Mesas Executivas de Exportação: O Panorama do Açaí",
+          "kind": "estudo da mesma linha (série Mesas Executivas)",
+          "reference": "Coslovsky, Lima e Martins, Amazônia 2030, 2025 (fonte: Lista de estudos AMZ2030 em Fatos da Amazônia 2026)"
+        }
+      ],
+      "officialUrl": null,
+      "files": {
+        "pdf": "pdfs/mesas-executivas-pimenta-do-reino.pdf",
+        "source": "Mesas-Executivas-Oportunidades-para-Aprimorar-o-Setor-da-Pimenta-do-Reino-do-Para.pdf",
+        "bytes": 5662049,
+        "pages": 45,
+        "sha256": "76448a7214f743c46c02f2ed325c8f80b4c3e164e4f3640016b256ee1446d5eb",
+        "pageSizePt": [
+          595.3,
+          841.9
+        ]
+      },
+      "unidentified": [
+        "DOI",
+        "ISBN",
+        "ano impresso",
+        "palavras-chave oficiais"
+      ],
+      "notes": [
+        "O título impresso na capa é 'Mesas Executivas', com o subtítulo em caixa-alta; o nome do arquivo e o cabeçalho interno ('O setor de pimenta-do-reino no Pará') variam.",
+        "Palavras-chave não constam do PDF; foram elaboradas pela biblioteca."
+      ],
+      "cover": {
+        "large": "covers/mesas-executivas-pimenta-do-reino.webp",
+        "thumb": "covers/mesas-executivas-pimenta-do-reino-thumb.webp",
+        "width": 960,
+        "height": 1357,
+        "source": "Página 1 do PDF (capa original)",
+        "alt": "Capa do estudo Mesas Executivas",
+        "spineColor": "#5b4528",
+        "spineText": "#ffffff"
+      }
+    },
+    {
+      "id": "planejamento-obras-transportes",
+      "number": 95,
+      "title": "Planejamento e Priorização de Obras de Infraestrutura de Transportes com Base em Evidências",
+      "subtitle": null,
+      "authors": [
+        {
+          "name": "Gustavo R. S. Pinto",
+          "affiliation": "CPI/PUC-Rio (gerente de pesquisa)"
+        },
+        {
+          "name": "João Pedro Arbache",
+          "affiliation": "CPI/PUC-Rio (analista sênior)"
+        },
+        {
+          "name": "Cláudio R. Frischtak",
+          "affiliation": "International Growth Center (LSE/Oxford); Inter.B Consultoria"
+        }
+      ],
+      "year": 2026,
+      "yearBasis": "impresso",
+      "yearNote": "Ano impresso na citação sugerida (Rio de Janeiro: Climate Policy Initiative e Amazônia 2030, 2026).",
+      "analysisPeriod": "Dados de transporte de 2018 (ANTT e ANTAQ, citados como fonte de mapas); projetos em avaliação",
+      "institutions": [
+        {
+          "name": "Climate Policy Initiative (CPI/PUC-Rio)",
+          "role": "publicação"
+        },
+        {
+          "name": "Amazônia 2030",
+          "role": "publicação"
+        },
+        {
+          "name": "International Growth Center (LSE/Oxford)",
+          "role": "afiliação de autor"
+        }
+      ],
+      "funders": [
+        "Fundação Itaúsa",
+        "Instituto Clima e Sociedade"
+      ],
+      "series": "Amazônia 2030 · nº 95",
+      "publicationType": "Relatório de pesquisa",
+      "language": "pt-BR",
+      "categories": {
+        "primary": "infraestrutura-logistica",
+        "secondary": [
+          "governanca-politicas"
+        ]
+      },
+      "subcategory": "Planejamento de transportes",
+      "territories": [
+        "Amazônia Legal"
+      ],
+      "territoryNote": "BR-319 (Porto Velho–Manaus) e Hidrovia do Madeira (Porto Velho ao rio Amazonas)",
+      "keywords": [
+        "infraestrutura de transportes",
+        "área de influência",
+        "acesso a mercado",
+        "BR-319",
+        "Hidrovia do Madeira",
+        "planejamento",
+        "priorização de projetos",
+        "avaliação de impacto"
+      ],
+      "keywordsSource": "aplicacao",
+      "topic": "Como delimitar a área de influência de projetos de transporte para planejá-los e priorizá-los com base em evidências.",
+      "summary": {
+        "synthesis": "Propõe delimitar a área de influência de projetos de infraestrutura de transportes pela metodologia de acesso a mercado e a ilustra comparando a pavimentação do 'trecho do meio' da BR-319 e a concessão da Hidrovia do Madeira. A BR-319 afeta cerca de 633 mil pessoas em 20 municípios (460 mil km²), com efeitos mais intensos: alguns municípios têm variação de acesso a mercado equivalente a um milhão de pessoas. A Hidrovia do Madeira alcança cerca de 7,8 milhões de pessoas em 170 municípios (1,9 milhão de km²), com maior variação de 980 mil. O estudo argumenta que essa avaliação permite comparar e priorizar projetos, identificar vulnerabilidades e antecipar medidas de mitigação, sem exigir novos marcos legais.",
+        "official": null
+      },
+      "questions": [
+        "Como delimitar a área de influência de um projeto de transporte além do entorno imediato da obra?",
+        "Como a abrangência e a intensidade dos impactos diferem entre a BR-319 e a Hidrovia do Madeira?",
+        "Como incorporar essa análise ao planejamento e à priorização de projetos?"
+      ],
+      "methods": [
+        "Metodologia de acesso a mercado aplicada a dois projetos comparados (BR-319 e Hidrovia do Madeira)",
+        "Caracterização econômica, ambiental, social e demográfica dos territórios afetados"
+      ],
+      "findings": [
+        "Custos logísticos do país são estimados em cerca de 15% do PIB, contra 10% nos países da OCDE",
+        "BR-319: cerca de 633 mil pessoas em 20 municípios (460 mil km²); Hidrovia do Madeira: cerca de 7,8 milhões de pessoas em 170 municípios (1,9 milhão de km²)",
+        "Um município típico da Amazônia Legal tem mercado potencial 2,1 vezes menor do que a média nacional",
+        "A base institucional existente já permite incorporar esses critérios sem alterações normativas significativas"
+      ],
+      "identifier": {
+        "doi": null,
+        "isbn": null,
+        "url": null,
+        "source": "Não identificado"
+      },
+      "relatedVersions": [
+        {
+          "title": "Novas Ameaças ao Desmatamento da Amazônia: Impactos Esperados das Rodovias BR-364 e BR-319 e das Ferrovias FICO 1 e Ferrovia Estadual do Mato Grosso",
+          "kind": "estudo complementar",
+          "reference": "Mesmos autores (CPI/PUC-Rio e Amazônia 2030, 2026); citado na nota 8 deste estudo, que usa a mesma métrica de acesso a mercado"
+        }
+      ],
+      "officialUrl": null,
+      "files": {
+        "pdf": "pdfs/planejamento-obras-transportes.pdf",
+        "source": "Planejamento-e-Priorizacao-de-Obras-de-Infraestrutura-de-Transportes-com-Base-em-Evidencias.pdf",
+        "bytes": 16968389,
+        "pages": 28,
+        "sha256": "fa84d1b3e85a014ed380a4f95c5890856bd95eedcdfea323baeb31f936b01cfe",
+        "pageSizePt": [
+          595.3,
+          841.9
+        ]
+      },
+      "unidentified": [
+        "DOI",
+        "ISBN",
+        "palavras-chave oficiais"
+      ],
+      "notes": [],
+      "cover": {
+        "large": "covers/planejamento-obras-transportes.webp",
+        "thumb": "covers/planejamento-obras-transportes-thumb.webp",
+        "width": 960,
+        "height": 1357,
+        "source": "Página 1 do PDF (capa original)",
+        "alt": "Capa do estudo Planejamento e Priorização de Obras de Infraestrutura de Transportes com Base em Evidências",
+        "spineColor": "#06351e",
+        "spineText": "#ffffff"
+      }
+    }
+  ]
+}
