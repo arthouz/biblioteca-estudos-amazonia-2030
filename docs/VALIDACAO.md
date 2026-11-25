@@ -112,7 +112,7 @@ A referência (layoffsandhires.com/engineering) foi inspecionada ao vivo no nave
 
 | Padrão da referência | Esta biblioteca |
 |---|---|
-| Estante de lombadas em perspectiva 3D, cada livro girado 90° | Igual em conceito: lombadas em `perspective: 2200px`, ponto de fuga que acompanha o centro da área visível; ao passar o cursor/foco o livro avança e abre, mostrando a capa real |
+| Estante de lombadas em perspectiva 3D, cada livro girado 90° | Igual em conceito: lombadas em `perspective: 2200px`, ponto de fuga que acompanha o centro da área visível; ao clicar (ou Enter) o livro sai da estante e mostra a capa real, levemente inclinada e reagindo ao ponteiro; clicar na capa abre a ficha. O cursor vira uma bolinha ("Ver capa" na lombada, "Abrir" na capa) |
 | Faixa numerada de cor, título vertical e autor na lombada | Faixa numerada com a cor predominante da capa real, título vertical em serifa, autor em caixa-alta e ano |
 | Filtros em pílulas com indicador preto deslizante | Igual; as pílulas quebram em duas linhas quando necessário (a taxonomia tem 6 categorias com nomes longos) |
 | Setas de navegação e cursor “Abrir” (desktop) | Igual; o cursor só aparece com mouse |
@@ -133,4 +133,4 @@ Capturas em `docs/capturas/` (desktop, tablet, celular, ficha, leitor, tema escu
 4. **Verificação de tipos:** `tsc` passou com um arquivo de declarações mínimo para React, porque `@types/react` não estava instalado e o ambiente não tem rede. Ao rodar `npm install`, `npm run typecheck` usa os tipos oficiais; um ajuste menor pode aparecer.
 5. **Desempenho com PDFs grandes:** localmente a primeira página do PDF de 31 MB aparece em menos de 1 s porque o servidor de teste suporta Range. Em produção isso depende de a hospedagem suportar Range. O total de PDFs é de 97 MB (pasta `dist/` com 107 MB).
 6. **Rematamento Produtivo:** o PDF recebido tem data de geração posterior ao ano da lista (2025) e imprime só um autor; a ficha segue o PDF e registra a divergência.
-7. **Celular:** a estante 3D funciona, mas o padrão é a Grade, por usabilidade; o efeito de abertura por hover é desligado em telas pequenas.
+7. **Celular:** a estante 3D funciona, mas o padrão é a Grade, por usabilidade; a abertura da capa só existe na estante, que em telas pequenas fica desligada por padrão.

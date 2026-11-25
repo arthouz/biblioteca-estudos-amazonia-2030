@@ -24,6 +24,8 @@ async function open(viewport = { width: 1440, height: 900 }, opts = {}) {
   await page.waitForSelector(".book, .card");
   return { ctx, page };
 }
+// Na estante o clique no livro puxa a capa; o clique na capa abre a ficha. No modo grade, o cartão abre direto.
+const openBook = async (page, sel) => { if (await page.locator(".book.is-pulled").count()) await page.click(".shelf-caption"); await page.click(sel); const cover = page.locator(".book.is-pulled .cover-hit"); if (await cover.count()) await cover.click(); };
 const titles = async (page) => page.$$eval(".book-hit, .card", (els) => els.map((e) => e.getAttribute("aria-label")));
 const count = async (page) => (await page.$$(".book-hit, .card")).length;
 
@@ -137,7 +139,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   const { ctx, page } = await open();
   for (const p of data) {
     await step("Detalhe", `Ficha de “${p.title.slice(0, 48)}…” abre com dados corretos`, async () => {
-      await page.click(`.book-hit[aria-label*="${p.title.slice(0, 30)}"]`);
+      await openBook(page, `.book-hit[aria-label*="${p.title.slice(0, 30)}"]`);
       await page.waitForSelector("dialog.detail[open]");
       eq(await page.locator("#detail-title").innerText(), p.title);
       ok(page.url().includes(`#/estudo/${p.id}`), page.url());
@@ -162,7 +164,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
     ok(!page.url().includes("#/estudo"), "hash não limpo");
   }
   await step("Detalhe", "Download real do PDF (evento de download, Mesas Executivas)", async () => {
-    await page.click('.book-hit[aria-label*="Mesas Executivas"]');
+    await openBook(page, '.book-hit[aria-label*="Mesas Executivas"]');
     const [dl] = await Promise.all([page.waitForEvent("download"), page.click('a:has-text("Baixar PDF")')]);
     ok(dl.suggestedFilename().endsWith(".pdf"), dl.suggestedFilename());
     const path = await dl.path(); ok(readFileSync(path).subarray(0, 5).toString() === "%PDF-");
@@ -170,7 +172,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   });
   await step("Links externos", "DOIs só aparecem quando existem; abrem em nova aba com rel seguro", async () => {
     for (const p of data) {
-      await page.click(`.book-hit[aria-label*="${p.title.slice(0, 30)}"]`); await page.waitForSelector("dialog.detail[open]");
+      await openBook(page, `.book-hit[aria-label*="${p.title.slice(0, 30)}"]`); await page.waitForSelector("dialog.detail[open]");
       const l = page.locator('a[target="_blank"]:has-text("DOI"), a[target="_blank"]:has-text("link externo")');
       const hasLink = p.identifier.doi || p.identifier.url;
       eq(await l.count(), hasLink ? 1 : 0, p.id);
@@ -179,19 +181,19 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
     }
   });
   await step("Metadados", "Campos ausentes aparecem como 'Não identificado' (DOI de Amazônia em Foco)", async () => {
-    await page.click('.book-hit[aria-label*="Amazônia em Foco"]'); await page.waitForSelector("dialog.detail[open]");
+    await openBook(page, '.book-hit[aria-label*="Amazônia em Foco"]'); await page.waitForSelector("dialog.detail[open]");
     const idt = await page.locator('.d-facts > div:has(dt:text-is("Identificador")) dd').innerText(); ok(idt.includes("Não identificado"), idt);
     ok((await page.locator(".detail-body").innerText()).includes("não é o resumo oficial"), "rótulo da síntese");
     await page.screenshot({ path: `${OUT}/desktop-detalhe-amazonia-em-foco.png` });
     await page.keyboard.press("Escape");
   });
   await step("Metadados", "Trecho oficial é exibido separado da síntese (IPS Brasil)", async () => {
-    await page.click('.book-hit[aria-label*="Progresso Social"]'); await page.waitForSelector("dialog.detail[open]");
+    await openBook(page, '.book-hit[aria-label*="Progresso Social"]'); await page.waitForSelector("dialog.detail[open]");
     ok((await page.locator(".d-quote figcaption").innerText()).includes("p. 5"), "página do trecho");
     await page.keyboard.press("Escape");
   });
   await step("Detalhe", "Navegação anterior/próximo dentro da ficha", async () => {
-    await page.click('.book-hit[aria-label*="Rematamento"]'); await page.waitForSelector("dialog.detail[open]");
+    await openBook(page, '.book-hit[aria-label*="Rematamento"]'); await page.waitForSelector("dialog.detail[open]");
     await page.click('.d-pager button:has-text("Próximo")'); await page.waitForTimeout(300);
     ok((await page.locator("#detail-title").innerText()).startsWith("Agricultura"), "próximo");
     await page.click('.d-pager button:has-text("Anterior")'); await page.waitForTimeout(300);
@@ -212,7 +214,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   const { ctx, page } = await open();
   for (const [id, label] of [["portas-entrada-emprego-formal", "As portas"], ["rematamento-produtivo", "Rematamento"]]) {
     await step("Leitor PDF", `Abre e renderiza a página 1 (${id})`, async () => {
-      await page.click(`.book-hit[aria-label*="${label}"]`); await page.waitForSelector("dialog.detail[open]");
+      await openBook(page, `.book-hit[aria-label*="${label}"]`); await page.waitForSelector("dialog.detail[open]");
       const t0 = Date.now(); await page.click('button:has-text("Ler PDF")');
       await page.waitForSelector(".reader canvas:not(.hidden)", { timeout: 60000 });
       await page.waitForFunction(() => { const c = document.querySelector(".reader canvas"); if (!c || !c.width) return false; const d = c.getContext("2d").getImageData(0, 0, c.width, Math.min(c.height, 400)).data; let non = 0; for (let i = 0; i < d.length; i += 400) if (d[i] < 250 || d[i + 1] < 250 || d[i + 2] < 250) non++; return non > 20; }, null, { timeout: 60000 });
@@ -248,7 +250,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   await page.route("**/covers/amazonia-em-foco*.webp", (r) => r.fulfill({ status: 404, body: "nf" }));
   await page.reload(); await page.waitForSelector(".book");
   await step("Estados", "PDF indisponível: aviso claro, sem botões de leitura/download", async () => {
-    await page.click('.book-hit[aria-label*="Amazônia em Foco"]'); await page.waitForSelector("text=Documento indisponível");
+    await openBook(page, '.book-hit[aria-label*="Amazônia em Foco"]'); await page.waitForSelector("text=Documento indisponível");
     eq(await page.locator('a:has-text("Baixar PDF"), button:has-text("Ler PDF")').count(), 0);
     ok((await page.locator("#detail-title").innerText()) === "Amazônia em Foco", "ficha continua");
     await page.screenshot({ path: `${OUT}/estado-pdf-indisponivel.png` });
@@ -303,7 +305,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   await page.route("**/data/publications.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(mod) }));
   await page.goto(URL0); await page.waitForSelector(".book");
   await step("Download oficial", "Com officialUrl, o botão vira link externo (nova aba, rel seguro) e o PDF local não é oferecido para baixar", async () => {
-    await page.click('.book-hit[aria-label*="Amazônia em Foco"]'); await page.waitForSelector("dialog.detail[open]");
+    await openBook(page, '.book-hit[aria-label*="Amazônia em Foco"]'); await page.waitForSelector("dialog.detail[open]");
     const a = page.locator('a:has-text("Baixar no site do Amazônia 2030")'); await a.waitFor();
     eq(await a.getAttribute("href"), URL_OFICIAL); eq(await a.getAttribute("target"), "_blank"); ok((await a.getAttribute("rel")).includes("noopener"), "rel");
     eq(await a.getAttribute("download"), null); eq(await page.locator('a:has-text("Baixar PDF")').count(), 0);
@@ -325,13 +327,17 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
 // ---------- 7. Teclado, foco e acessibilidade ----------
 {
   const { ctx, page } = await open();
-  await step("Acessibilidade", "Teclado: setas movem entre lombadas; Enter abre; Esc fecha e devolve o foco", async () => {
+  await step("Acessibilidade", "Teclado: setas movem entre lombadas; Enter puxa a capa; Tab+Enter abre; Esc fecha e devolve o foco", async () => {
     await page.locator(".book-hit").first().focus();
     await page.keyboard.press("ArrowRight"); await page.keyboard.press("ArrowRight");
     const lab = await page.evaluate(() => document.activeElement.getAttribute("aria-label")); ok(lab.includes("Rematamento"), lab);
+    await page.keyboard.press("Enter"); await page.waitForSelector(".book.is-pulled .cover-hit");
+    eq(await page.locator(".book-hit[aria-expanded=true]").count(), 1);
+    await page.keyboard.press("Tab"); ok(await page.evaluate(() => document.activeElement.classList.contains("cover-hit")), "Tab deve ir à capa");
     await page.keyboard.press("Enter"); await page.waitForSelector("dialog.detail[open]");
     await page.keyboard.press("Escape"); await page.waitForSelector("dialog.detail", { state: "detached" });
-    const back = await page.evaluate(() => document.activeElement?.className); ok(typeof back === "string", "foco");
+    const back = await page.evaluate(() => document.activeElement?.className); ok(back === "cover-hit", `foco voltou para ${back}`);
+    await page.keyboard.press("Escape"); await page.waitForFunction(() => !document.querySelector(".book.is-pulled")); // Esc recolhe a capa
   });
   await step("Acessibilidade", "Foco visível (outline) em lombada, pílula e campo", async () => {
     await page.locator(".book-hit").nth(1).focus(); await page.keyboard.press("Shift+Tab"); await page.keyboard.press("Tab");
@@ -376,7 +382,7 @@ for (const [name, w, h] of VPS) {
     await page.screenshot({ path: `${OUT}/${name}.png` });
   });
   await step("Responsivo", `${name}: ficha de detalhe abre e cabe na largura`, async () => {
-    const t = (await page.$$(".book-hit, .card"))[1]; await t.scrollIntoViewIfNeeded(); await t.click({ force: true }); await page.waitForSelector("dialog.detail[open]");
+    const t = (await page.$$(".book-hit, .card"))[1]; await t.scrollIntoViewIfNeeded(); await t.click({ force: true }); { const cv = page.locator(".book.is-pulled .cover-hit"); if (await cv.count()) await cv.click({ force: true }); } await page.waitForSelector("dialog.detail[open]");
     await page.waitForTimeout(500);
     const o = await page.evaluate(() => { const d = document.querySelector("dialog.detail"); return { sw: d.scrollWidth, cw: d.clientWidth }; }); ok(o.sw <= o.cw + 1, `${o.sw} > ${o.cw}`);
     const btn = await page.locator('button:has-text("Ler PDF")').boundingBox().catch(() => null); ok(btn, "botão Ler PDF");
