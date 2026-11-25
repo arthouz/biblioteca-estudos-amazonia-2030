@@ -11,6 +11,7 @@ export function Shelf3D({ lib, items, onOpen }: Props) {
   const track = useRef<HTMLUListElement>(null);
   const cursor = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState<string | null>(null);
+  const [hiRes, setHiRes] = useState<Set<string>>(() => new Set());
   const [edges, setEdges] = useState({ start: true, end: true });
 
   const updateOrigin = useCallback(() => {
@@ -51,6 +52,11 @@ export function Shelf3D({ lib, items, onOpen }: Props) {
   const overBook = (e: PointerEvent<HTMLElement>) => { if (e.pointerType === "mouse") cursor.current?.classList.add("on"); };
   const outBook = () => cursor.current?.classList.remove("on");
 
+  // Carrega a capa em alta resolução só quando o livro é focado pela primeira vez.
+  useEffect(() => {
+    if (focused && !hiRes.has(focused)) setHiRes((prev) => new Set(prev).add(focused));
+  }, [focused, hiRes]);
+
   const active = items.find((p) => p.id === focused) ?? null;
   const catLabel = (id: string) => lib.taxonomy.categories.find((c) => c.id === id)?.label ?? id;
 
@@ -82,7 +88,12 @@ export function Shelf3D({ lib, items, onOpen }: Props) {
                       <span className="spine-year">{p.year ?? "–"}{p.year && !yearIsPrinted(p) ? "*" : ""}</span>
                     </div>
                     <div className="face front">
-                      {p.cover ? <img src={asset(p.cover.thumb)} alt="" draggable={false} loading="lazy" decoding="async" /> : <div className="cover-fallback"><span>{p.title}</span></div>}
+                      {p.cover ? (
+                        <>
+                          <img src={asset(p.cover.thumb)} alt="" draggable={false} loading="lazy" decoding="async" />
+                          {hiRes.has(p.id) && <img className="hi" src={asset(p.cover.large)} alt="" draggable={false} decoding="async" onLoad={(e) => e.currentTarget.classList.add("ready")} />}
+                        </>
+                      ) : <div className="cover-fallback"><span>{p.title}</span></div>}
                     </div>
                     <div className="face back" />
                   </div>
