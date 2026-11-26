@@ -1,41 +1,46 @@
 @font-face { font-family: "DM Sans"; src: url("../../public/fonts/dmsans-var-latin.woff") format("woff"); font-weight: 100 1000; font-style: normal; font-display: swap; }
-@font-face { font-family: "Fraunces"; src: url("../../public/fonts/fraunces-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("../../public/fonts/montserrat-var-latin.woff") format("woff"); font-weight: 100 900; font-style: normal; font-display: swap; }
 
+/* Paleta do site amazonia2030.org.br (verdes, creme e terra). */
 :root {
-  --paper: #f7f5ef;
+  --paper: #faf8ef;
   --surface: #ffffff;
-  --surface-2: #efece3;
-  --ink: #0f1a14;
-  --ink-2: #3b4840;
-  --muted: #5d6860;
-  --line: #e0ddd2;
-  --line-strong: #c9c5b7;
-  --accent: #14392b;
-  --accent-ink: #f7f5ef;
-  --lime: #b9d36a;
-  --focus: #1a6b4a;
+  --surface-2: #f2f0e3;
+  --ink: #1b2820;
+  --ink-2: #56605b;
+  --muted: #5f6a63;
+  --line: #e4e9e2;
+  --line-strong: #d0d7cc;
+  --accent: #3f7a3c;
+  --accent-ink: #ffffff;
+  --lime: #7fba7b;
+  --tint: #edf5eb;
+  --focus: #3f7a3c;
   --danger: #8a2d1f;
-  --shadow: 0 1px 2px rgba(15, 26, 20, .06), 0 8px 24px rgba(15, 26, 20, .08);
+  --shadow: 0 1px 2px rgba(27, 40, 32, .05), 0 6px 18px rgba(27, 40, 32, .06);
+  --shadow-lg: 0 24px 64px rgba(27, 40, 32, .25);
   --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-serif: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --wrap: 1240px;
   --radius: 10px;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --paper: #0d1410;
-  --surface: #141d18;
-  --surface-2: #1b2620;
-  --ink: #eef1e9;
-  --ink-2: #c4cdc4;
-  --muted: #9ba79d;
-  --line: #25312a;
-  --line-strong: #3a4940;
-  --accent: #b9d36a;
-  --accent-ink: #0d1410;
-  --lime: #b9d36a;
-  --focus: #b9d36a;
+  --paper: #123020;
+  --surface: #173a22;
+  --surface-2: #1d4529;
+  --ink: #edf5eb;
+  --ink-2: #c9d8c8;
+  --muted: #a9bba9;
+  --line: #265233;
+  --line-strong: #37653f;
+  --accent: #7fba7b;
+  --accent-ink: #123020;
+  --lime: #7fba7b;
+  --tint: #1d4529;
+  --focus: #7fba7b;
   --danger: #ff9b87;
-  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 28px rgba(0, 0, 0, .45);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 10px 28px rgba(0, 0, 0, .4);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, .6);
   color-scheme: dark;
 }

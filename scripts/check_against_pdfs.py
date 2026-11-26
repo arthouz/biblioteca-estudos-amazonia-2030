@@ -6,7 +6,9 @@ ROOT = Path(__file__).resolve().parent.parent
 def n(s): return re.sub(r"[^a-z0-9]+", " ", unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode().lower()).strip()
 bad = 0
 for p in json.loads((ROOT / "data/publications.json").read_text(encoding="utf-8"))["publications"]:
-    src = ROOT / "public" / p["files"]["pdf"]
+    src = ROOT / "fontes" / p["files"]["source"]
+    if not src.exists():
+        print("PULOU", p["id"], "(PDF não está em fontes/)"); continue
     first = n(subprocess.run(["pdftotext", "-f", "1", "-l", "6", str(src), "-"], capture_output=True, text=True).stdout)
     full = n(subprocess.run(["pdftotext", str(src), "-"], capture_output=True, text=True).stdout)
     miss = [w for w in n(p["title"] + " " + (p["subtitle"] or "")).split() if len(w) > 3 and w not in first]

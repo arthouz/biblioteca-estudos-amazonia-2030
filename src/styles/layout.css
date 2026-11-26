@@ -1,7 +1,7 @@
 .site-header { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: saturate(1.2) blur(10px); border-bottom: 1px solid var(--line); }
 .site-header-in { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
 .wordmark { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; }
-:root[data-theme="dark"] .wordmark-logo { background: #f7f5ef; border-radius: 8px; padding: 4px 8px; height: 44px; }
+:root[data-theme="dark"] .wordmark-logo { background: #faf8ef; border-radius: 8px; padding: 4px 8px; height: 44px; }
 .wordmark-logo { height: 40px; width: auto; display: block; }
 .header-actions { display: flex; align-items: center; gap: 8px; }
 

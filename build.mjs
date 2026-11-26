@@ -1,10 +1,7 @@
-// Build estático: bundle (esbuild) + cópia de dados, PDFs, capas, fontes e arquivos do pdf.js para dist/.
+// Build estático: bundle (esbuild) + cópia de dados, capas, fontes e marca para dist/.
 import { build } from "esbuild";
 import { cpSync, rmSync, mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
-import { createRequire } from "node:module";
-import path from "node:path";
 
-const require = createRequire(import.meta.url);
 const out = "dist";
 rmSync(out, { recursive: true, force: true });
 mkdirSync(`${out}/assets`, { recursive: true });
@@ -35,18 +32,11 @@ html = html.replace("%CSS%", css).replace("%JS%", js);
 writeFileSync(`${out}/index.html`, html);
 
 // Conteúdo estático
-for (const d of ["pdfs", "covers"]) if (existsSync(`public/${d}`)) cpSync(`public/${d}`, `${out}/${d}`, { recursive: true });
-cpSync("public/fonts/Fraunces-OFL.txt", `${out}/fonts/Fraunces-OFL.txt`, { recursive: true });
+for (const d of ["covers"]) if (existsSync(`public/${d}`)) cpSync(`public/${d}`, `${out}/${d}`, { recursive: true });
+cpSync("public/fonts/Montserrat-OFL.txt", `${out}/fonts/Montserrat-OFL.txt`, { recursive: true });
 cpSync("public/fonts/DMSans-OFL.txt", `${out}/fonts/DMSans-OFL.txt`, { recursive: true });
 cpSync("data", `${out}/data`, { recursive: true });
 cpSync("public/brand", `${out}/brand`, { recursive: true });
 writeFileSync(`${out}/.nojekyll`, ""); // GitHub Pages: servir arquivos como estão
 
-// pdf.js (leitor): worker, wasm, cmaps, fontes padrão
-const pdfjsDir = path.dirname(path.dirname(require.resolve("pdfjs-dist/package.json")));
-const pj = path.join(path.dirname(require.resolve("pdfjs-dist/package.json")));
-mkdirSync(`${out}/pdfjs`, { recursive: true });
-cpSync(`${pj}/build/pdf.worker.min.mjs`, `${out}/pdfjs/pdf.worker.min.mjs`);
-for (const d of ["wasm", "cmaps", "standard_fonts", "iccs"]) cpSync(`${pj}/${d}`, `${out}/pdfjs/${d}`, { recursive: true });
-void pdfjsDir;
 console.log("dist/ pronto.");

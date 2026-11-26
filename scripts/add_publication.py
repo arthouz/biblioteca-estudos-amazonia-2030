@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cria o registro-base de um novo estudo em data/publications.json e prepara PDF e capa.
+"""Cria o registro-base de um novo estudo em data/publications.json e prepara a capa (o PDF fica só em fontes/, fora do site).
 
 Uso:
   python3 scripts/add_publication.py caminho/arquivo.pdf --id meu-estudo --title "Título oficial" --number 96 \
@@ -35,7 +35,8 @@ data["publications"].append({
     "territories": [], "keywords": [], "keywordsSource": None,
     "summary": {"synthesis": None, "official": None}, "questions": [], "methods": [], "findings": [],
     "identifier": {"doi": None, "isbn": None, "url": None, "source": "Não identificado"},
-    "relatedVersions": [], "officialUrl": None, "files": {"source": a.pdf.name}, "unidentified": ["autores", "ano", "instituições", "resumo"], "notes": [],
+    "relatedVersions": [], "officialUrl": None,  # preencha com o link do estudo em https://amazonia2030.org.br/ (botão "Ler estudo")
+    "files": {"source": a.pdf.name}, "unidentified": ["autores", "ano", "instituições", "resumo"], "notes": [],
 })
 path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 subprocess.run([sys.executable, str(ROOT / "scripts/prepare_assets.py"), "--sources", str(src_dir), "--only", a.id], check=True)

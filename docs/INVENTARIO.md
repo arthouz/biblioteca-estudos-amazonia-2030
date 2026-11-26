@@ -1,6 +1,6 @@
 # Inventário documental
 
-Tabela gerada a partir de `data/publications.json` (fonte única dos dados da interface). Campos sem informação no PDF aparecem como **não identificado**.
+Tabela baseada em `data/publications.json` (fonte única dos dados da interface). A interface mostra só uma parte destes campos (ficha mínima com botão “Ler estudo”); o restante serve de registro documental. Campos sem informação no PDF aparecem como **não identificado**.
 
 `*` = ano não impresso no PDF: *fonte secundária* é a lista de estudos AMZ2030 em *Fatos da Amazônia 2026* (documento de referência do projeto); *inferido* é deduzido do conteúdo (datas de referências, entrevistas, eventos citados) e **não é confirmado**.
 
@@ -12,6 +12,7 @@ Tabela gerada a partir de `data/publications.json` (fonte única dos dados da in
 | 88 | Índice de Progresso Social Brasil 2026 | Qualidade de vida nos 5.570 municípios do Brasil | Melissa Wilm; Daniel Santos; Luana Coelho; Sérgio Marangoni; Ricardo Chaves Lima; Gabriel Gonçalves; Beto Verissimo | 2026 (impresso) | 55 | Desenvolvimento social e trabalho | Brasil | DOI 10.59346/IPS_Brasil_2026 (fonte secundária); ISBN 978-65-89617-40-2 |
 | 89 | Rematamento Produtivo, Conservação e Desenvolvimento Econômico na Amazônia Brasileira | não identificado | Salo Coslovsky | 2025 (fonte secundária*) | 73 | Economia e desenvolvimento sustentável; Desmatamento e conservação, Agropecuária e cadeias produtivas | Amazônia Legal | DOI 10.59346/rematamento_produtivo_desenvolvimento_amazonia_brasileira (fonte secundária) |
 | 90 | Agricultura na Amazônia Legal | Condições de produtividade, riscos climáticos e propostas para produzir melhor em áreas já abertas | Paulo Barreto; Ritaumaria Pereira; Gabriel Salles Barreto | 2026 (fonte secundária*) | 79 | Agropecuária e cadeias produtivas; Desmatamento e conservação | Amazônia Legal | DOI 10.59346/agricultura_amazonia_legal_propostas (fonte secundária) |
+| 91 | Fatos da Amazônia 2026 | não identificado | Daniel Santos; Arthur França; Manuele Lima; Agatha Vilhena; Beto Veríssimo | 2026 (impresso) | 125 | Desmatamento e conservação; Desenvolvimento social e trabalho; Economia e desenvolvimento sustentável | Amazônia Legal; Pan-Amazônia | DOI, ISBN e link não identificados |
 | 92 | Novas Ameaças ao Desmatamento da Amazônia | Impactos Esperados das Rodovias BR-364 e BR-319 e das Ferrovias FICO 1 e Ferrovia Estadual do Mato Grosso | Gustavo R. S. Pinto; João Pedro F. Arbache; Cláudio R. Frischtak | 2026 (impresso) | 31 | Desmatamento e conservação; Infraestrutura e logística, Governança e políticas públicas | Amazônia Legal | não identificado |
 | 93 | Amazônia em Foco | Como Redirecionar Recursos Públicos para o Desenvolvimento Sustentável da Região | Juliano Assunção; Paulo Barreto; Salo Coslovsky; Beto Verissimo; Manuele Lima | 2026 (inferido*) | 29 | Governança e políticas públicas; Economia e desenvolvimento sustentável | Amazônia Legal | não identificado |
 | 94 | Mesas Executivas | Oportunidades para aprimorar o setor de pimenta-do-reino no Pará | Eduardo Roxo; Salo Coslovsky | 2026 (inferido*) | 45 | Agropecuária e cadeias produtivas; Economia e desenvolvimento sustentável | Pará | não identificado |
@@ -205,6 +206,27 @@ Tabela gerada a partir de `data/publications.json` (fonte única dos dados da in
 **Notas:**
 - Palavras-chave não constam do PDF; foram elaboradas pela biblioteca.
 
+### nº 91 — Fatos da Amazônia 2026
+
+**Autores e afiliações (como impressos no PDF):**
+- Daniel Santos — engenheiro ambiental e consultor
+- Arthur França — assistente de projetos do Centro de Empreendedorismo da Amazônia
+- Manuele Lima — coordenadora de projetos do Centro de Empreendedorismo da Amazônia
+- Agatha Vilhena — assistente de projetos do Centro de Empreendedorismo da Amazônia
+- Beto Veríssimo — cofundador do Imazon, diretor do Centro de Empreendedorismo da Amazônia, diretor geral do IPS Brasil e um dos coordenadores do Projeto Amazônia 2030
+
+**Ano:** 2026 (impresso). **Período analisado:** séries entre 1970 e 2025, conforme cada indicador.
+**Instituições:** Amazônia 2030 (publicação); Centro de Empreendedorismo da Amazônia (afiliação dos autores)
+**Série:** Amazônia 2030 · nº 91
+**Palavras-chave:** Amazônia, Amazônia Legal, Meio Ambiente, Demografia, Indígenas, Economia, Desmatamento, Progresso Social, Segurança Pública
+**Território:** Amazônia Legal; Pan-Amazônia
+**Identificador:** DOI, ISBN e link não identificados.
+**Link oficial (botão “Ler estudo”):** https://amazonia2030.org.br/wp-content/uploads/2026/08/FatosAMZ2026.pdf (informado pelo usuário)
+**Arquivo:** `FatosAMZ2026.pdf` · 125 páginas
+**Capa:** provisória, gerada pela biblioteca (a arte oficial não estava disponível no ambiente); trocar por `public/covers/fatos-da-amazonia-2026(.webp / -thumb.webp)`.
+**Não identificado neste PDF:** subtítulo, ISBN, DOI, apoio.
+- Cadastro feito a partir do texto do PDF do projeto; este é o documento que lista os estudos da série e serve de fonte secundária para os anos dos nº 87, 89 e 90.
+
 ### nº 92 — Novas Ameaças ao Desmatamento da Amazônia
 
 **Subtítulo:** Impactos Esperados das Rodovias BR-364 e BR-319 e das Ferrovias FICO 1 e Ferrovia Estadual do Mato Grosso
@@ -387,8 +409,8 @@ Tabela gerada a partir de `data/publications.json` (fonte única dos dados da in
 - **Novas Ameaças ao Desmatamento da Amazônia (nº 92)** e **Planejamento e Priorização de Obras de Infraestrutura de Transportes (nº 95)** são estudos complementares dos mesmos autores (CPI/PUC-Rio e Amazônia 2030). O nº 95 cita o nº 92 e usa a mesma métrica de acesso a mercado. Nada de um foi atribuído ao outro: cada ficha traz só o que consta no respectivo PDF.
 - **Rematamento Produtivo (nº 89)** é a versão completa; há versões resumidas (nota de política pública com Coslovsky e Veríssimo; artigo no Valor Econômico de 23/10/2024). Elas não estão na biblioteca e aparecem em *Publicações relacionadas*.
 - **Divergência de autoria no nº 89:** o PDF imprime apenas Salo Coslovsky; a lista de *Fatos da Amazônia 2026* registra Coslovsky e Veríssimo para a nota de política pública. A ficha segue o PDF.
-- **Mesas Executivas (nº 94)** pertence à série de mesmo nome; o estudo sobre o açaí, citado em *Fatos da Amazônia 2026*, não faz parte dos oito arquivos recebidos.
+- **Mesas Executivas (nº 94)** pertence à série de mesmo nome; o estudo sobre o açaí, citado em *Fatos da Amazônia 2026*, não faz parte dos arquivos recebidos.
 - **Anos não impressos:** nº 87, 89 e 90 usam o ano da lista de *Fatos da Amazônia 2026*; nº 93 e 94 têm ano inferido. Confirmar com a equipe do Amazônia 2030 antes de citar publicamente.
 - **DOIs** vêm da lista de *Fatos da Amazônia 2026* (fonte secundária). Em checagem posterior, o DOI do nº 87 e o do nº 89 redirecionaram para o PDF em amazonia2030.org.br; o link curto do nº 92 redireciona para a página da CPI; os DOIs dos nº 88 e 90 não abriram na checagem (não confirmados). Verifique-os antes de usá-los como destino de download.
-- O arquivo do IPS Brasil recebido é uma versão comprimida; o de Rematamento tem 31 MB (a leitura online usa HTTP Range, que o servidor de hospedagem precisa suportar).
+- Os PDFs não são hospedados pela biblioteca: o botão “Ler estudo” abre o link oficial em amazonia2030.org.br, onde os acessos são contados.
 - **IPS Brasil:** a grafia 'Verissimo' (sem acento) foi mantida como na lista de autores desse PDF. A grafia 'maderereiros' nas palavras-chave do nº 89 foi corrigida para 'madeireiros' na biblioteca (anotado na ficha).

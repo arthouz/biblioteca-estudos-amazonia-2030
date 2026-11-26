@@ -93,9 +93,8 @@
         "source": "Lista de estudos AMZ2030 em Fatos da Amazônia 2026 (fonte secundária; não impresso neste PDF)"
       },
       "relatedVersions": [],
-      "officialUrl": null,
+      "officialUrl": "https://amazonia2030.org.br/wp-content/uploads/2026/04/As-portas-de-entrada-do-emprego-formal-na-Amazonia.pdf",
       "files": {
-        "pdf": "pdfs/portas-entrada-emprego-formal.pdf",
         "source": "As-portas-de-entrada-do-emprego-formal-na-Amazonia.pdf",
         "bytes": 1935893,
         "pages": 19,
@@ -242,9 +241,8 @@
         "source": "ISBN impresso no PDF (ficha catalográfica); DOI da Lista de estudos AMZ2030 em Fatos da Amazônia 2026 (fonte secundária)"
       },
       "relatedVersions": [],
-      "officialUrl": null,
+      "officialUrl": "https://amazonia2030.org.br/wp-content/uploads/2026/06/IPS-Brasil-2026.pdf",
       "files": {
-        "pdf": "pdfs/ips-brasil-2026.pdf",
         "source": "IPS-Brasil-2026_compressed.pdf",
         "bytes": 5381421,
         "pages": 55,
@@ -373,9 +371,8 @@
           "reference": "Valor Econômico, 23 de outubro de 2024, com Denis Minev e Pedro Wongtschowski (fonte: agradecimentos do próprio PDF)"
         }
       ],
-      "officialUrl": null,
+      "officialUrl": "https://amazonia2030.org.br/wp-content/uploads/2026/06/Rematamento-Produtivo.pdf",
       "files": {
-        "pdf": "pdfs/rematamento-produtivo.pdf",
         "source": "Rematamento-Produtivo.pdf",
         "bytes": 31407047,
         "pages": 73,
@@ -497,9 +494,8 @@
         "source": "Lista de estudos AMZ2030 em Fatos da Amazônia 2026 (fonte secundária)"
       },
       "relatedVersions": [],
-      "officialUrl": null,
+      "officialUrl": "https://amazonia2030.org.br/wp-content/uploads/2026/09/AGRICULTURA-NA-AMAZO%CC%82NIA-LEGAL.pdf",
       "files": {
-        "pdf": "pdfs/agricultura-amazonia-legal.pdf",
         "source": "AGRICULTURA-NA-AMAZÔNIA-LEGAL.pdf",
         "bytes": 14577155,
         "pages": 79,
@@ -526,6 +522,118 @@
         "source": "Página 1 do PDF (capa original)",
         "alt": "Capa do estudo Agricultura na Amazônia Legal",
         "spineColor": "#705533",
+        "spineText": "#ffffff"
+      }
+    },
+    {
+      "id": "fatos-da-amazonia-2026",
+      "number": 91,
+      "title": "Fatos da Amazônia 2026",
+      "subtitle": null,
+      "authors": [
+        {
+          "name": "Daniel Santos",
+          "affiliation": "Engenheiro ambiental e consultor"
+        },
+        {
+          "name": "Arthur França",
+          "affiliation": "Assistente de projetos do Centro de Empreendedorismo da Amazônia"
+        },
+        {
+          "name": "Manuele Lima",
+          "affiliation": "Coordenadora de projetos do Centro de Empreendedorismo da Amazônia"
+        },
+        {
+          "name": "Agatha Vilhena",
+          "affiliation": "Assistente de projetos do Centro de Empreendedorismo da Amazônia"
+        },
+        {
+          "name": "Beto Veríssimo",
+          "affiliation": "Cofundador do Imazon, Diretor do Centro de Empreendedorismo da Amazônia, Diretor Geral do IPS Brasil e um dos Coordenadores do Projeto Amazônia 2030"
+        }
+      ],
+      "year": 2026,
+      "yearBasis": "impresso",
+      "yearNote": "Ano 2026 impresso na capa e na citação sugerida.",
+      "analysisPeriod": "Séries entre 1970 e 2025, conforme cada indicador",
+      "institutions": [
+        {
+          "name": "Amazônia 2030",
+          "role": "publicação"
+        },
+        {
+          "name": "Centro de Empreendedorismo da Amazônia",
+          "role": "afiliação dos autores"
+        }
+      ],
+      "funders": [],
+      "series": "Amazônia 2030 · nº 91",
+      "publicationType": "Compêndio de dados",
+      "language": "pt-BR",
+      "categories": {
+        "primary": "desmatamento-conservacao",
+        "secondary": [
+          "desenvolvimento-social",
+          "economia-desenvolvimento"
+        ]
+      },
+      "subcategory": "Indicadores ambientais, sociais e econômicos",
+      "territories": [
+        "Amazônia Legal",
+        "Pan-Amazônia"
+      ],
+      "territoryNote": "Amazônia Legal, com seção sobre a Pan-Amazônia",
+      "keywords": [
+        "Amazônia",
+        "Amazônia Legal",
+        "Meio Ambiente",
+        "Demografia",
+        "Indígenas",
+        "Economia",
+        "Desmatamento",
+        "Progresso Social",
+        "Segurança Pública"
+      ],
+      "keywordsSource": "oficial",
+      "topic": "Compilação de dados ambientais, sociais e econômicos mais recentes da Amazônia.",
+      "summary": {
+        "synthesis": "Reúne, em um único documento, os dados ambientais, sociais e econômicos mais recentes da Amazônia, com base em fontes secundárias de instituições públicas e da sociedade civil. O desmatamento de floresta primária na Amazônia Legal caiu de 13.038 km² em 2021 para 5.731 km² em 2025. A região tem cerca de 29 milhões de habitantes (13% da população do Brasil) e pontuação de 58,18 no IPS Brasil 2026, contra 64,21 no restante do país.",
+        "official": null
+      },
+      "questions": [],
+      "methods": [
+        "Dados secundários de diversas instituições de pesquisa públicas e da sociedade civil"
+      ],
+      "findings": [],
+      "identifier": {
+        "doi": null,
+        "isbn": null,
+        "url": null,
+        "source": "Não identificado"
+      },
+      "relatedVersions": [],
+      "officialUrl": "https://amazonia2030.org.br/wp-content/uploads/2026/08/FatosAMZ2026.pdf",
+      "files": {
+        "source": "FatosAMZ2026.pdf",
+        "pages": 125
+      },
+      "unidentified": [
+        "subtítulo",
+        "ISBN",
+        "DOI",
+        "apoio"
+      ],
+      "notes": [
+        "Cadastro feito a partir do texto do PDF; a capa exibida é provisória, gerada pela biblioteca."
+      ],
+      "cover": {
+        "large": "covers/fatos-da-amazonia-2026.webp",
+        "thumb": "covers/fatos-da-amazonia-2026-thumb.webp",
+        "width": 960,
+        "height": 1358,
+        "source": "Capa provisória gerada pela biblioteca (arte oficial indisponível no ambiente)",
+        "alt": "Capa provisória do estudo Fatos da Amazônia 2026",
+        "spineColor": "#173A22",
         "spineText": "#ffffff"
       }
     },
@@ -631,9 +739,8 @@
           "reference": "Mesmos autores e mesma instituição (CPI/PUC-Rio e Amazônia 2030, 2026); cita este relatório e usa a mesma métrica de acesso a mercado"
         }
       ],
-      "officialUrl": null,
+      "officialUrl": "https://amazonia2030.org.br/wp-content/uploads/2026/09/Novas-Ameacas-ao-Desmatamento-da-Amazonia.pdf",
       "files": {
-        "pdf": "pdfs/novas-ameacas-desmatamento.pdf",
         "source": "Novas-Ameacas-ao-Desmatamento-da-Amazonia.pdf",
         "bytes": 7650080,
         "pages": 31,
@@ -769,9 +876,8 @@
         "source": "Não identificado"
       },
       "relatedVersions": [],
-      "officialUrl": null,
+      "officialUrl": "https://amazonia2030.org.br/wp-content/uploads/2026/09/Amazonia-em-Foco.pdf",
       "files": {
-        "pdf": "pdfs/amazonia-em-foco.pdf",
         "source": "Amazonia-em-Foco.pdf",
         "bytes": 17908308,
         "pages": 29,
@@ -903,9 +1009,8 @@
           "reference": "Coslovsky, Lima e Martins, Amazônia 2030, 2025 (fonte: Lista de estudos AMZ2030 em Fatos da Amazônia 2026)"
         }
       ],
-      "officialUrl": null,
+      "officialUrl": "https://amazonia2030.org.br/wp/wp-content/uploads/2026/11/Mesas-Executivas-Oportunidades-para-Aprimorar-o-Setor-da-Pimenta-do-Reino-do-Para.pdf",
       "files": {
-        "pdf": "pdfs/mesas-executivas-pimenta-do-reino.pdf",
         "source": "Mesas-Executivas-Oportunidades-para-Aprimorar-o-Setor-da-Pimenta-do-Reino-do-Para.pdf",
         "bytes": 5662049,
         "pages": 45,
@@ -1035,9 +1140,8 @@
           "reference": "Mesmos autores (CPI/PUC-Rio e Amazônia 2030, 2026); citado na nota 8 deste estudo, que usa a mesma métrica de acesso a mercado"
         }
       ],
-      "officialUrl": null,
+      "officialUrl": "https://amazonia2030.org.br/wp/wp-content/uploads/2026/11/Planejamento-e-Priorizacao-de-Obras-de-Infraestrutura-de-Transportes-com-Base-em-Evidencias.pdf",
       "files": {
-        "pdf": "pdfs/planejamento-obras-transportes.pdf",
         "source": "Planejamento-e-Priorizacao-de-Obras-de-Infraestrutura-de-Transportes-com-Base-em-Evidencias.pdf",
         "bytes": 16968389,
         "pages": 28,

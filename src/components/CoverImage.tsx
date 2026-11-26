@@ -4,7 +4,7 @@ import { asset } from "../lib/data";
 
 interface Props { pub: Publication; size?: "thumb" | "large"; className?: string; eager?: boolean }
 
-/** Capa real do PDF. Se o arquivo não existir, mostra uma capa tipográfica (sem imagem inventada). */
+/** Capa do estudo. Se o arquivo não existir, mostra uma capa tipográfica (sem imagem inventada). */
 export function CoverImage({ pub, size = "thumb", className = "", eager }: Props) {
   const [failed, setFailed] = useState(false);
   const c = pub.cover;

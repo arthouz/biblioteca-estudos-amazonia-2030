@@ -2,7 +2,7 @@
 """Prepara os ativos de cada estudo registrado em data/publications.json.
 
 Para cada publicação:
-  - copia o PDF de origem (files.source) para public/pdfs/<id>.pdf;
+  - lê o PDF de origem (files.source) na pasta --sources (o PDF NÃO é copiado para o site: o botão "Ler estudo" usa officialUrl);
   - renderiza a primeira página como capa real (WebP grande e miniatura);
   - mede páginas, tamanho em bytes e SHA-256;
   - calcula a cor predominante da capa (usada na lombada da estante 3D).
@@ -58,7 +58,6 @@ def main():
     a = ap.parse_args()
 
     data = json.loads(DATA.read_text(encoding="utf-8"))
-    (PUB / "pdfs").mkdir(parents=True, exist_ok=True)
     (PUB / "covers").mkdir(parents=True, exist_ok=True)
     problems = []
     for p in data["publications"]:
@@ -66,11 +65,9 @@ def main():
             continue
         src = a.sources / p["files"]["source"]
         if not src.exists():
-            problems.append(f"{p['id']}: PDF de origem não encontrado ({src.name})")
+            problems.append(f"{p['id']}: PDF de origem não encontrado ({src.name}); registro mantido como está")
             continue
-        dst = PUB / "pdfs" / f"{p['id']}.pdf"
-        if a.force or not dst.exists() or dst.stat().st_size != src.stat().st_size:
-            shutil.copyfile(src.resolve(), dst)
+        dst = src
         h = hashlib.sha256(dst.read_bytes()).hexdigest()
         reader = PdfReader(str(dst))
         pages = len(reader.pages)
@@ -89,7 +86,6 @@ def main():
         spine = "#%02x%02x%02x" % rgb
         on = "#ffffff" if lum(rgb) < 0.4 else "#0a0a0a"
         p["files"].update({
-            "pdf": f"pdfs/{p['id']}.pdf",
             "bytes": dst.stat().st_size,
             "pages": pages,
             "sha256": h,

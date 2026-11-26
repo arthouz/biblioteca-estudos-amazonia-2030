@@ -2,13 +2,13 @@ import { useCallback, useEffect, useState } from "react";
 import type { Filters } from "../types";
 import { EMPTY_FILTERS } from "./filter";
 
-export interface Route { id: string | null; reader: boolean }
+export interface Route { id: string | null }
 
 export function parseHash(hash: string = location.hash): Route {
-  const m = /^#\/estudo\/([^/?#]+)(\/pdf)?/.exec(hash);
-  return m ? { id: decodeURIComponent(m[1]), reader: !!m[2] } : { id: null, reader: false };
+  const m = /^#\/estudo\/([^/?#]+)/.exec(hash);
+  return { id: m ? decodeURIComponent(m[1]) : null };
 }
-export const hashFor = (r: Route) => (r.id ? `#/estudo/${encodeURIComponent(r.id)}${r.reader ? "/pdf" : ""}` : "#/");
+export const hashFor = (r: Route) => (r.id ? `#/estudo/${encodeURIComponent(r.id)}` : "#/");
 
 export function useRoute(): [Route, (r: Route) => void] {
   const [route, setRoute] = useState<Route>(() => parseHash());

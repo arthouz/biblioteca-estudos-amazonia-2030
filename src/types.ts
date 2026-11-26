@@ -7,7 +7,7 @@ export interface RelatedVersion { title: string; kind: string; reference: string
 export interface OfficialExcerpt { text: string; page: string }
 
 export interface PublicationFiles {
-  pdf?: string; source?: string; bytes?: number; pages?: number; sha256?: string; pageSizePt?: [number, number];
+  source?: string; bytes?: number; pages?: number; sha256?: string; pageSizePt?: [number, number];
 }
 export interface PublicationCover {
   large: string; thumb: string; width: number; height: number; source: string; alt: string; spineColor: string; spineText: string;
@@ -41,7 +41,7 @@ export interface Publication {
   findings: string[];
   identifier: Identifier;
   relatedVersions: RelatedVersion[];
-  /** Página/arquivo oficial no site do Amazônia 2030. Se preenchido, o botão de download redireciona para ele (contagem de downloads no site). */
+  /** Link oficial do estudo no site do Amazônia 2030. O botão "Ler estudo" redireciona para ele (contagem de acessos no site). */
   officialUrl: string | null;
   files: PublicationFiles;
   cover?: PublicationCover;

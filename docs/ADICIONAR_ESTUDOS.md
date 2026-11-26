@@ -9,12 +9,12 @@ A interface não precisa de alterações: ela lê `data/publications.json` e `da
    ```bash
    python3 scripts/add_publication.py fontes/NOVO.pdf --id novo-estudo --title "Título oficial exato" --number 96 --category governanca-politicas
    ```
-   O script copia o PDF para `public/pdfs/novo-estudo.pdf`, renderiza a capa real (página 1) em `public/covers/`, mede páginas/tamanho/SHA-256, calcula a cor da lombada e cria o registro-base.
-3. Abra `data/publications.json` e complete os campos (veja o esquema abaixo). O que ficar vazio aparece como “Não identificado”.
+   O script mantém o PDF só em `fontes/` (ele não vai para o site), renderiza a capa real (página 1) em `public/covers/`, mede páginas/tamanho/SHA-256, calcula a cor da lombada e cria o registro-base.
+3. Abra `data/publications.json`, complete os campos (veja o esquema abaixo) e **preencha `officialUrl`** com o link do PDF em `https://amazonia2030.org.br/…`: é ele que o botão “Ler estudo” abre. Sem o link, a ficha mostra “Link oficial não informado”.
 4. Valide e gere o site: `npm run check:data && npm run build`.
 5. (Recomendado) Confira título e autores contra o PDF: `python3 scripts/check_against_pdfs.py`.
 
-Se o PDF for atualizado, rode `python3 scripts/prepare_assets.py --sources fontes --only <id> --force` para refazer cópia, capa e medidas.
+Se o PDF for atualizado, copie-o para `fontes/` e rode `python3 scripts/prepare_assets.py --sources fontes --only <id> --force` para refazer cópia, capa e medidas.
 
 ## 2. Esquema de um registro (resumo)
 
@@ -32,7 +32,7 @@ Se o PDF for atualizado, rode `python3 scripts/prepare_assets.py --sources fonte
 | `summary.synthesis` / `summary.official` | síntese da biblioteca **e** trecho oficial (`{ text, page }`), sempre separados |
 | `questions`, `methods`, `findings` | listas curtas, só o que o PDF afirma |
 | `identifier` | DOI/ISBN/URL e `source` (de onde veio). Nunca preencha o que não foi encontrado |
-| `officialUrl` | URL do estudo no site do Amazônia 2030. Se preenchida, o botão de download redireciona para ela (nova aba), contando o download lá. Vazio = baixa o PDF hospedado |
+| `officialUrl` | **Obrigatório na prática.** URL do estudo em `https://amazonia2030.org.br/` (o `check:data` recusa outros domínios). O botão “Ler estudo” abre essa URL em nova aba, e o acesso é contado no site oficial |
 | `relatedVersions[]` | outras versões/estudos relacionados, com a referência |
 | `unidentified[]`, `notes[]` | lista do que não foi identificado e observações documentais |
 
@@ -44,7 +44,7 @@ Acrescente um item em `data/taxonomy.json` (`id`, `label`, `description`) e use 
 
 ## 4. Corrigir ou remover
 
-Edite o JSON e rode `npm run build`. Para remover, apague o registro e, se quiser, os arquivos em `public/pdfs/` e `public/covers/`.
+Edite o JSON e rode `npm run build`. Para remover, apague o registro e, se quiser, as imagens em `public/covers/`.
 
 ## 5. Capa que não pôde ser extraída
 
@@ -52,4 +52,8 @@ Omita `cover` do registro: a interface mostra uma capa tipográfica (título e n
 
 ## 6. Escala
 
-A estante rola horizontalmente e a grade lista todos os cards; a busca e os filtros rodam no navegador. A suíte de testes carrega 209 registros sem problemas. Para centenas de estudos, a grade é o modo recomendado; para milhares, seria necessário paginar ou indexar no servidor.
+A estante rola horizontalmente e a grade lista todos os cards; a busca e os filtros rodam no navegador. A suíte de testes carrega 210 registros sem problemas. Para centenas de estudos, a grade é o modo recomendado; para milhares, seria necessário paginar ou indexar no servidor.
+
+## 7. O que a ficha mostra
+
+A ficha exibe só categoria e ano, título, autores, um resumo curto (as primeiras frases de `summary.synthesis`, até ~230 caracteres) e o botão “Ler estudo”. Os demais campos (instituições, palavras-chave, métodos, identificadores etc.) continuam no JSON e na busca/filtros, mas não aparecem na ficha, para mantê-la enxuta.

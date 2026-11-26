@@ -9,7 +9,6 @@ import { FilterBar } from "./components/FilterBar";
 import { Shelf3D } from "./components/Shelf3D";
 import { GridView } from "./components/GridView";
 import { DetailOverlay } from "./components/DetailOverlay";
-import { AboutDialog } from "./components/AboutDialog";
 import { EmptyState, ErrorState, LoadingState } from "./components/States";
 
 type Theme = "light" | "dark";
@@ -26,7 +25,6 @@ export default function App() {
   const narrow = useMedia("(max-width: 719px)");
   const [view, setView] = useState<ViewMode | null>(() => (store.get("a2030-view") as ViewMode | null));
   const [theme, setTheme] = useState<Theme>(() => (document.documentElement.getAttribute("data-theme") as Theme | null) ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
-  const [about, setAbout] = useState(false);
   const [route, go] = useRoute();
 
   const load = useCallback(() => { setError(null); setLib(null); loadLibrary().then(setLib).catch((e) => setError(String(e?.message ?? e))); }, []);
@@ -40,18 +38,15 @@ export default function App() {
   const active = hasActiveFilters(filters);
   const clear = () => setFilters(EMPTY_FILTERS);
 
-  const open = (p: Publication) => go({ id: p.id, reader: false });
+  const open = (p: Publication) => go({ id: p.id });
   const current = lib && route.id ? lib.publications.find((p) => p.id === route.id) ?? null : null;
-  const order = items.some((p) => p.id === current?.id) ? items : lib?.publications ?? [];
-  const idx = current ? order.findIndex((p) => p.id === current.id) : -1;
-
-  useEffect(() => { if (lib && route.id && !current) go({ id: null, reader: false }); }, [lib, route.id, current, go]);
+  useEffect(() => { if (lib && route.id && !current) go({ id: null }); }, [lib, route.id, current, go]);
   useEffect(() => { document.title = current ? `${current.title} · Amazônia 2030` : "Biblioteca de Estudos · Amazônia 2030"; }, [current]);
 
   return (
     <>
       <a className="skip" href="#conteudo">Ir para o conteúdo</a>
-      <Header theme={theme} onToggleTheme={() => { const t = theme === "dark" ? "light" : "dark"; setTheme(t); store.set("a2030-theme", t); }} onAbout={() => setAbout(true)} />
+      <Header theme={theme} onToggleTheme={() => { const t = theme === "dark" ? "light" : "dark"; setTheme(t); store.set("a2030-theme", t); }} />
       <main id="conteudo">
         {error && <ErrorState message={error} onRetry={load} />}
         {!error && !lib && <LoadingState />}
@@ -65,12 +60,10 @@ export default function App() {
         )}
       </main>
       <footer className="site-footer wrap">
-        <p>Os PDFs e seus conteúdos pertencem aos respectivos autores e instituições.</p>
+        <p>Os estudos pertencem aos respectivos autores e instituições.</p>
       </footer>
-      {about && <AboutDialog onClose={() => setAbout(false)} />}
       {lib && current && (
-        <DetailOverlay key={current.id} lib={lib} pub={current} prev={idx > 0 ? order[idx - 1] : null} next={idx >= 0 && idx < order.length - 1 ? order[idx + 1] : null}
-          readerOpen={route.reader} onClose={() => go({ id: null, reader: false })} onReader={() => go({ id: current.id, reader: true })} onCloseReader={() => go({ id: current.id, reader: false })} onNavigate={open} />
+        <DetailOverlay key={current.id} lib={lib} pub={current} onClose={() => go({ id: null })} />
       )}
     </>
   );
