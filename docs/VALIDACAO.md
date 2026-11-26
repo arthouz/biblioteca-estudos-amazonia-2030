@@ -112,7 +112,7 @@ A referência (layoffsandhires.com/engineering) foi inspecionada ao vivo no nave
 
 | Padrão da referência | Esta biblioteca |
 |---|---|
-| Estante de lombadas em perspectiva 3D, cada livro girado 90° | Igual em conceito: lombadas em `perspective: 2200px`, ponto de fuga que acompanha o centro da área visível; ao clicar (ou Enter) o livro sai da estante e mostra a capa real, levemente inclinada e reagindo ao ponteiro; clicar na capa abre a ficha. O cursor vira uma bolinha ("Ver capa" na lombada, "Abrir" na capa) |
+| Estante de lombadas em perspectiva 3D, cada livro girado 90° | Igual em conceito: lombadas em `perspective: 2200px`, ponto de fuga que acompanha o centro da área visível; ao clicar (ou Enter) o livro sai da estante e mostra a capa real, levemente inclinada e reagindo ao ponteiro; clicar na capa abre a ficha. A tela é enxuta (título, categorias, busca; filtros avançados sob o botão "Filtros"), a lombada mostra só número e título, e o livro puxado abre um vão na estante sem cobrir os vizinhos. O cursor vira uma bolinha ("Ver capa" na lombada, "Abrir" na capa) |
 | Faixa numerada de cor, título vertical e autor na lombada | Faixa numerada com a cor predominante da capa real, título vertical em serifa, autor em caixa-alta e ano |
 | Filtros em pílulas com indicador preto deslizante | Igual; as pílulas quebram em duas linhas quando necessário (a taxonomia tem 6 categorias com nomes longos) |
 | Setas de navegação e cursor “Abrir” (desktop) | Igual; o cursor só aparece com mouse |

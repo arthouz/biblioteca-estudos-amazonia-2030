@@ -5,7 +5,6 @@ import { EMPTY_FILTERS, applyFilters, facets, hasActiveFilters, sortPublications
 import { filtersFromUrl, filtersToUrl, useRoute } from "./lib/route";
 import { useMedia } from "./lib/useMedia";
 import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
 import { FilterBar } from "./components/FilterBar";
 import { Shelf3D } from "./components/Shelf3D";
 import { GridView } from "./components/GridView";
@@ -58,7 +57,6 @@ export default function App() {
         {!error && !lib && <LoadingState />}
         {lib && fac && (
           <>
-            <Hero lib={lib} />
             <FilterBar filters={filters} onChange={setFilters} onClear={clear} active={active} total={lib.publications.length} shown={items.length}
               categories={fac.categories} years={fac.years} territories={fac.territories} institutions={fac.institutions}
               sort={sort} onSort={setSort} view={effectiveView} onView={(v) => { setView(v); store.set("a2030-view", v); }} />
@@ -67,8 +65,7 @@ export default function App() {
         )}
       </main>
       <footer className="site-footer wrap">
-        <p>Biblioteca digital dos estudos do Amazônia 2030. Os PDFs e seus conteúdos pertencem aos respectivos autores e instituições.</p>
-        <p className="muted small">* Ano não impresso no PDF. Veja “Sobre os dados”.</p>
+        <p>Os PDFs e seus conteúdos pertencem aos respectivos autores e instituições.</p>
       </footer>
       {about && <AboutDialog onClose={() => setAbout(false)} />}
       {lib && current && (

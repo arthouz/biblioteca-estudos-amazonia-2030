@@ -25,7 +25,7 @@ async function open(viewport = { width: 1440, height: 900 }, opts = {}) {
   return { ctx, page };
 }
 // Na estante o clique no livro puxa a capa; o clique na capa abre a ficha. No modo grade, o cartão abre direto.
-const openBook = async (page, sel) => { if (await page.locator(".book.is-pulled").count()) await page.click(".shelf-caption"); await page.click(sel); const cover = page.locator(".book.is-pulled .cover-hit"); if (await cover.count()) await cover.click(); };
+const openBook = async (page, sel) => { if (await page.locator(".book.is-pulled").count()) await page.click(".filters h1"); await page.click(sel); const cover = page.locator(".book.is-pulled .cover-hit"); if (await cover.count()) await cover.click(); };
 const titles = async (page) => page.$$eval(".book-hit, .card", (els) => els.map((e) => e.getAttribute("aria-label")));
 const count = async (page) => (await page.$$(".book-hit, .card")).length;
 
@@ -37,9 +37,9 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
     const labels = await titles(page);
     for (const p of data) ok(labels.some((l) => l.includes(p.title)), `título ausente: ${p.title}`);
   });
-  await step("Registro", "Hero informa 8 publicações e período 2025–2026", async () => {
-    const t = await page.locator(".hero-stats").innerText();
-    ok(/8/.test(t) && /2025–2026/.test(t), t);
+  await step("Registro", "Tela enxuta: só título, categorias, busca e lombadas (sem parágrafos de apoio)", async () => {
+    eq(await page.locator(".hero-lead, .hero-stats, .eyebrow, .shelf-caption, .spine-author, .spine-year").count(), 0);
+    eq(await page.locator(".book").count(), 8);
   });
   await step("Capas", "Todas as 8 capas reais carregam (naturalWidth > 0) na grade", async () => {
     await page.click('.view-toggle button:has-text("Grade")');
@@ -64,13 +64,10 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   const status = () => page.locator(".result-count").innerText();
   const sel = (label) => page.locator(`label.field:has(.field-label:text-is("${label}")) select`);
   const pill = (t) => page.locator(`.pill:has-text("${t}")`);
-  await step("Filtros", "Contagens por categoria batem com o JSON (primária ou secundária)", async () => {
-    const tax = JSON.parse(readFileSync("data/taxonomy.json", "utf8")).categories;
-    for (const c of tax) {
-      const n = data.filter((p) => p.categories.primary === c.id || p.categories.secondary.includes(c.id)).length;
-      const txt = await page.locator(`.pill:has-text("${c.label}") .pill-count`).innerText();
-      eq(Number(txt), n, c.label);
-    }
+  await step("Filtros", "Pílulas de categoria sem contadores e sem filtros avançados à vista", async () => {
+    eq(await page.locator(".pill .pill-count").count(), 0);
+    eq(await page.locator(".filters-panel").isVisible(), false);
+    await page.click(".filters-toggle"); eq(await page.locator(".filters-panel").isVisible(), true);
   });
   await step("Filtros", "Categoria 'Infraestrutura e logística' → 2 estudos (multi-categoria)", async () => {
     await pill("Infraestrutura").click(); eq(await count(page), 2);
@@ -125,6 +122,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
     await page.reload(); await page.waitForSelector(".book, .card"); eq(await count(page), 1); await search("");
   });
   await step("Ordenação", "Ordenar por título A–Z e por ano", async () => {
+    if (!(await page.locator(".filters-panel").isVisible())) await page.click(".filters-toggle");
     await sel("Ordenar").selectOption("titulo"); const l = await titles(page);
     const names = data.map((p) => p.title).sort((a, b) => a.localeCompare(b, "pt-BR"));
     ok(l[0].includes(names[0]) && l[7].includes(names[7]), l[0]);
@@ -359,7 +357,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
     const calc = async () => page.evaluate(() => {
       const L = (c) => { const [r, g, b] = c.match(/\d+(\.\d+)?/g).slice(0, 3).map(Number).map((v) => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; }); return .2126 * r + .7152 * g + .0722 * b; };
       const bg = getComputedStyle(document.body).backgroundColor; const out = {};
-      for (const [k, sel] of Object.entries({ ink: ".hero-lead", muted: ".result-count", title: "h1", eyebrow: ".eyebrow" })) { const fg = getComputedStyle(document.querySelector(sel)).color; const a = L(fg), b = L(bg); out[k] = +((Math.max(a, b) + .05) / (Math.min(a, b) + .05)).toFixed(2); } return out; });
+      for (const [k, sel] of Object.entries({ muted: ".result-count", title: "h1", pill: ".pill" })) { const fg = getComputedStyle(document.querySelector(sel)).color; const a = L(fg), b = L(bg); out[k] = +((Math.max(a, b) + .05) / (Math.min(a, b) + .05)).toFixed(2); } return out; });
     const light = await calc(); await page.click('button[aria-label^="Usar tema escuro"]'); const dark = await calc();
     await page.screenshot({ path: `${OUT}/desktop-tema-escuro.png` });
     await page.click('button[aria-label^="Usar tema claro"]');

@@ -2,11 +2,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent, PointerEvent } from "react";
 import type { Library, Publication } from "../types";
 import { asset } from "../lib/data";
-import { shortAuthors, spineAuthor, spineThickness, titleSizeClass, yearIsPrinted } from "../lib/format";
+import { shortAuthors, spineThickness, titleSizeClass } from "../lib/format";
 
 interface Props { lib: Library; items: Publication[]; onOpen: (p: Publication) => void }
 
-export function Shelf3D({ lib, items, onOpen }: Props) {
+export function Shelf3D({ items, onOpen }: Props) {
   const scroller = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLUListElement>(null);
   const cursor = useRef<HTMLDivElement>(null);
@@ -68,7 +68,8 @@ export function Shelf3D({ lib, items, onOpen }: Props) {
   const togglePull = (p: Publication, btn: HTMLButtonElement) => {
     const next = pulledId === p.id ? null : p.id;
     setPulled(next);
-    if (next) btn.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+    // espera o vão da estante abrir para centralizar a capa
+    if (next) window.setTimeout(() => btn.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" }), 560);
   };
 
   // Inclinação sutil da capa acompanhando o ponteiro.
@@ -92,8 +93,6 @@ export function Shelf3D({ lib, items, onOpen }: Props) {
     if (pulledId && !hiRes.has(pulledId)) setHiRes((prev) => new Set(prev).add(pulledId));
   }, [pulledId, hiRes]);
 
-  const active = items.find((p) => p.id === (focused ?? pulledId)) ?? null;
-  const catLabel = (id: string) => lib.taxonomy.categories.find((c) => c.id === id)?.label ?? id;
 
   return (
     <section className="shelf wrap" aria-label="Estante de estudos">
@@ -107,7 +106,7 @@ export function Shelf3D({ lib, items, onOpen }: Props) {
               const T = spineThickness(p.files.pages);
               const ratio = p.cover ? p.cover.width / p.cover.height : 0.707;
               const style = {
-                "--t": `${T}px`, "--ratio": ratio,
+                "--t0": T, "--ratio": ratio,
                 "--spine": p.cover?.spineColor ?? "#3a4a40", "--spine-ink": p.cover?.spineText ?? "#fff",
               } as CSSProperties;
               return (
@@ -118,9 +117,7 @@ export function Shelf3D({ lib, items, onOpen }: Props) {
                       <span className="spine-band"><b>{p.number ?? "–"}</b></span>
                       <span className="spine-text">
                         <span className={`spine-title ${titleSizeClass(p.title)}`}>{p.title}</span>
-                        <span className="spine-author">{spineAuthor(p)}</span>
                       </span>
-                      <span className="spine-year">{p.year ?? "–"}{p.year && !yearIsPrinted(p) ? "*" : ""}</span>
                     </div>
                     <div className="face front">
                       {p.cover ? (
@@ -151,17 +148,6 @@ export function Shelf3D({ lib, items, onOpen }: Props) {
         <div className="open-cursor" ref={cursor} aria-hidden="true"><span>Ver capa</span></div>
       </div>
       <div className="shelf-board" aria-hidden="true" />
-      <div className="shelf-caption" aria-live="off">
-        {active ? (
-          <>
-            <p className="caption-meta">{active.number ? `Amazônia 2030 · nº ${active.number}` : "Amazônia 2030"} · {active.year ?? "ano não identificado"}{active.year && !yearIsPrinted(active) ? "*" : ""} · {catLabel(active.categories.primary)}</p>
-            <p className="caption-title">{active.title}</p>
-            <p className="caption-authors">{shortAuthors(active)}</p>
-          </>
-        ) : (
-          <p className="caption-hint">Clique num livro (ou use as setas e Enter) para ver a capa; clique na capa para abrir o estudo.</p>
-        )}
-      </div>
     </section>
   );
 }

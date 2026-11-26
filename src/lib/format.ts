@@ -39,7 +39,7 @@ export function slugText(s: string): string {
 
 export function titleSizeClass(title: string): "t1" | "t2" | "t3" | "t4" {
   const n = title.length;
-  return n <= 28 ? "t1" : n <= 52 ? "t2" : n <= 80 ? "t3" : "t4";
+  return n <= 24 ? "t1" : n <= 44 ? "t2" : n <= 64 ? "t3" : "t4";
 }
 
 export const spineThickness = (pages?: number) => Math.round(Math.min(112, Math.max(72, 62 + (pages ?? 30) * 0.62)));

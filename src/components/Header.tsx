@@ -8,7 +8,6 @@ export function Header({ theme, onToggleTheme, onAbout }: Props) {
       <div className="wrap site-header-in">
         <a className="wordmark" href="#/" aria-label="Amazônia 2030 · Biblioteca de Estudos">
           <img className="wordmark-logo" src={asset("brand/amazonia2030-logo.png")} width="380" height="159" alt="Amazônia 2030" />
-          <span className="wordmark-text"><span>Biblioteca de Estudos</span></span>
         </a>
         <nav className="header-actions" aria-label="Ações da página">
           <button type="button" className="btn-text" onClick={onAbout}>Sobre os dados</button>
