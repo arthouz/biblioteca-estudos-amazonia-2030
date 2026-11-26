@@ -9,7 +9,7 @@ Data da execução: 26/11/2026 · Ambiente: Chromium (Playwright) sobre o `dist/
 | 9 estudos registrados (nº 87 a 95) | contagem no JSON e na interface (estante e grade) | 9 / 9 |
 | Link oficial de cada estudo | `officialUrl` de todos os registros começa com `https://amazonia2030.org.br/`; o botão “Ler estudo” aponta exatamente para ele (nova aba, `rel="noopener noreferrer"`) | 9 / 9 |
 | Títulos e autores iguais aos dos PDFs | `scripts/check_against_pdfs.py` nos 8 PDFs recebidos no início; o nº 91 foi cadastrado a partir do texto do PDF do projeto | conferidos |
-| Capa correta de cada estudo | página 1 de cada PDF; nº 91 usa capa **provisória** (declarada em `cover.source`, no `alt` e nas notas) | 8 oficiais + 1 provisória |
+| Capa correta de cada estudo | página 1 de cada PDF; nº 91 usa a capa oficial enviada pelo usuário | 9 / 9 |
 | Ano de publicação ≠ período analisado | campos separados (`year` × `analysisPeriod`) | ok |
 | Anos não impressos sinalizados | asterisco com base declarada (fonte secundária ou inferido): nº 87, 89, 90, 93, 94 | ok |
 | Síntese × resumo oficial | a ficha mostra só um resumo curto da síntese; o trecho oficial permanece separado no JSON | ok |
@@ -117,9 +117,8 @@ Capturas em `docs/capturas/`; todas as resoluções testadas estão em `tests/ou
 
 ## 4. Limitações e pontos que dependem de você
 
-1. **Capa do nº 91 (Fatos da Amazônia 2026):** é provisória, pois a arte oficial não estava acessível ao ambiente. Para trocar, veja o README.
-2. **Fonte Rubik:** a fonte do site não estava disponível no ambiente; o texto corrido usa DM Sans e os títulos usam Montserrat (mesma família dos títulos do site).
-3. **Links oficiais:** foram informados pelo usuário e não são abertos pela suíte (o clique é verificado com a requisição interceptada). Confira-os no site publicado.
-4. **Anos não impressos:** nº 87, 89 e 90 (fonte secundária) e nº 93 e 94 (inferidos). Confirme com a equipe.
-5. **Navegadores:** a suíte rodou apenas em Chromium; toque foi emulado, sem aparelho real.
-6. **Verificação de tipos:** `npm run typecheck` roda no CI com as dependências instaladas.
+1. **Fonte Rubik:** a fonte do site não estava disponível no ambiente; o texto corrido usa DM Sans e os títulos usam Montserrat (mesma família dos títulos do site).
+2. **Links oficiais:** foram informados pelo usuário e não são abertos pela suíte (o clique é verificado com a requisição interceptada). Confira-os no site publicado.
+3. **Anos não impressos:** nº 87, 89 e 90 (fonte secundária) e nº 93 e 94 (inferidos). Confirme com a equipe.
+4. **Navegadores:** a suíte rodou apenas em Chromium; toque foi emulado, sem aparelho real.
+5. **Verificação de tipos:** `npm run typecheck` roda no CI com as dependências instaladas.

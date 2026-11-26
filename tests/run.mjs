@@ -46,7 +46,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
     await page.waitForSelector(".card");
     await page.waitForFunction(() => [...document.querySelectorAll(".card img")].every((i) => i.complete));
     const r = await page.$$eval(".card img", (is) => is.map((i) => [i.naturalWidth, i.alt]));
-    eq(r.length, 9); ok(r.every(([w, a]) => w > 0 && /^Capa (provisória )?do estudo/.test(a)), JSON.stringify(r));
+    eq(r.length, 9); ok(r.every(([w, a]) => w > 0 && a.startsWith("Capa do estudo")), JSON.stringify(r));
   });
   await step("Capas", "Proporção da capa preservada (aspect-ratio real do PDF)", async () => {
     const rs = await page.$$eval(".card img", (is) => is.map((i) => +(i.getBoundingClientRect().width / i.getBoundingClientRect().height).toFixed(2)));
@@ -179,7 +179,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   await step("Registro", "Fatos da Amazônia 2026 (nº 91) está na estante, com capa e ficha", async () => {
     const f = data.find((p) => p.number === 91); ok(f && f.title === "Fatos da Amazônia 2026", "registro");
     ok(f.officialUrl.endsWith("/2026/08/FatosAMZ2026.pdf"), f.officialUrl);
-    ok((f.cover.source || "").includes("provisória"), "capa provisória deve estar declarada no JSON");
+    ok((f.cover.source || "").includes("Página 1 do PDF"), "origem da capa");
     ok(await page.locator('.book-hit[aria-label*="Fatos da Amazônia"]').count() === 1, "lombada");
     await openBook(page, '.book-hit[aria-label*="Fatos da Amazônia"]'); await page.waitForSelector("dialog.detail[open]");
     eq(await page.locator("#detail-title").innerText(), "Fatos da Amazônia 2026");

@@ -223,7 +223,7 @@ Tabela baseada em `data/publications.json` (fonte única dos dados da interface)
 **Identificador:** DOI, ISBN e link não identificados.
 **Link oficial (botão “Ler estudo”):** https://amazonia2030.org.br/wp-content/uploads/2026/08/FatosAMZ2026.pdf (informado pelo usuário)
 **Arquivo:** `FatosAMZ2026.pdf` · 125 páginas
-**Capa:** provisória, gerada pela biblioteca (a arte oficial não estava disponível no ambiente); trocar por `public/covers/fatos-da-amazonia-2026(.webp / -thumb.webp)`.
+**Capa:** página 1 do PDF (capa original, enviada pelo usuário).
 **Não identificado neste PDF:** subtítulo, ISBN, DOI, apoio.
 - Cadastro feito a partir do texto do PDF do projeto; este é o documento que lista os estudos da série e serve de fonte secundária para os anos dos nº 87, 89 e 90.
 

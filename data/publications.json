@@ -624,16 +624,16 @@
         "apoio"
       ],
       "notes": [
-        "Cadastro feito a partir do texto do PDF; a capa exibida é provisória, gerada pela biblioteca."
+        "Capa oficial (página 1 do PDF) fornecida pelo usuário."
       ],
       "cover": {
         "large": "covers/fatos-da-amazonia-2026.webp",
         "thumb": "covers/fatos-da-amazonia-2026-thumb.webp",
         "width": 960,
-        "height": 1358,
-        "source": "Capa provisória gerada pela biblioteca (arte oficial indisponível no ambiente)",
-        "alt": "Capa provisória do estudo Fatos da Amazônia 2026",
-        "spineColor": "#173A22",
+        "height": 1247,
+        "source": "Página 1 do PDF (capa original), enviada pelo usuário",
+        "alt": "Capa do estudo Fatos da Amazônia 2026",
+        "spineColor": "#476f52",
         "spineText": "#ffffff"
       }
     },

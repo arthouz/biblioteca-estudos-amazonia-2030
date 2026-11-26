@@ -20,8 +20,6 @@ docs/                    INVENTARIO.md · ADICIONAR_ESTUDOS.md · VALIDACAO.md �
 build.mjs · serve.mjs    build estático e servidor local
 ```
 
-> **Capa provisória do nº 91 (Fatos da Amazônia 2026):** a arte oficial não estava disponível no ambiente de desenvolvimento; a capa atual é gerada pela biblioteca e está declarada como provisória no JSON. Para trocá-la, salve a imagem da página 1 do PDF oficial em `public/covers/fatos-da-amazonia-2026.webp` (960 px de largura) e `fatos-da-amazonia-2026-thumb.webp` (360 px) e atualize `cover.source` e `cover.alt`.
-
 ## Rodar localmente
 
 Requisitos: Node 22+ e Python 3 (com Pillow e pypdf) + `pdftoppm` (poppler) apenas para preparar capas a partir dos PDFs (que ficam em `fontes/`, fora do site).
