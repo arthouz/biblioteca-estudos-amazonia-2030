@@ -1,6 +1,6 @@
 # Relatório de validação
 
-Data da execução: 26/11/2026 · Ambiente: Chromium (Playwright) sobre o `dist/` servido localmente · Suíte: `tests/run.mjs` (última execução: **77/77 aprovadas**, sem erros de console).
+Data da execução: 26/11/2026 · Ambiente: Chromium (Playwright) sobre o `dist/` servido localmente · Suíte: `tests/run.mjs` (última execução: **83/83 aprovadas**, sem erros de console).
 
 ## 1. Fidelidade documental
 
@@ -19,7 +19,7 @@ Detalhe por estudo: `docs/INVENTARIO.md`.
 
 ## 2. Resultado da suíte automatizada
 
-77/77 verificações aprovadas.
+83/83 verificações aprovadas.
 
 | Área | Verificação | Resultado | Detalhe |
 |---|---|---|---|
@@ -28,11 +28,11 @@ Detalhe por estudo: `docs/INVENTARIO.md`.
 | Registro | Tela enxuta: só título, categorias, busca e lombadas (sem parágrafos de apoio) | ✔ |  |
 | Capas | Todas as 9 capas carregam (naturalWidth > 0) na grade | ✔ |  |
 | Capas | Proporção da capa preservada (aspect-ratio real do PDF) | ✔ |  |
-| Filtros | Pílulas de categoria sem contadores e sem filtros avançados à vista | ✔ |  |
+| Filtros | Menu de categorias sem contadores e sem filtros avançados à vista | ✔ |  |
 | Filtros | Categoria 'Infraestrutura e logística' → 2 estudos (multi-categoria) | ✔ |  |
 | Filtros | Um estudo aparece em mais de uma categoria (Novas Ameaças em 3) | ✔ |  |
 | Filtros | 'Todos' restaura 9 | ✔ |  |
-| Filtros | Indicador deslizante acompanha a pílula ativa | ✔ |  |
+| Filtros | Traço verde deslizante acompanha a aba ativa | ✔ |  |
 | Filtros | Ano 2025 → apenas Rematamento Produtivo | ✔ |  |
 | Filtros | Território 'Pará' → Mesas Executivas; 'Brasil' → IPS | ✔ |  |
 | Filtros | Instituição 'Imazon' → estudos com Imazon | ✔ |  |
@@ -73,17 +73,23 @@ Detalhe por estudo: `docs/INVENTARIO.md`.
 | Rotas | Clique no fundo da ficha fecha o diálogo | ✔ |  |
 | Paleta | Tema claro usa o fundo creme e o verde do site do Amazônia 2030; tipografia Montserrat nos títulos | ✔ |  |
 | Paleta | Montserrat carrega de fato (arquivo local, sem CDN) | ✔ |  |
+| Cabeçalho | Logo, divisor e título 'Biblioteca de estudos' (h1) formam um só bloco no cabeçalho | ✔ |  |
+| Menu | Desktop: as 7 abas cabem em uma única linha, com rótulo curto e nome completo acessível | ✔ |  |
+| Menu | Aba ativa tem traço verde (cor de destaque) e sem caixa ao redor | ✔ |  |
+| Tema escuro | Logo vira uma peça de cor única, sem retângulo de fundo | ✔ |  |
+| Cabeçalho | A linha divisória do cabeçalho só aparece ao rolar a página | ✔ |  |
+| Menu | Celular: abas em uma linha rolável e as capas começam acima de 300 px (antes ~500 px) | ✔ |  |
 | Estados | Capa ausente: capa tipográfica substitui, sem imagem quebrada; o botão Ler estudo continua | ✔ |  |
 | Estados | Falha ao carregar dados: mensagem e botão 'Tentar novamente' | ✔ |  |
 | Estados | Estado de carregamento visível antes dos dados | ✔ |  |
 | Estados | Estudo sem link oficial: ficha avisa e não mostra botão quebrado | ✔ |  |
-| Escala | 210 estudos (9 + 200 clones + 1 com apenas id/título) renderizam sem alterar a UI | ✔ | 0.9 s |
+| Escala | 210 estudos (9 + 200 clones + 1 com apenas id/título) renderizam sem alterar a UI | ✔ | 0.8 s |
 | Acessibilidade | Teclado: setas movem entre lombadas; Enter puxa a capa; Tab+Enter abre; Esc fecha e devolve o foco | ✔ |  |
 | Acessibilidade | Botão 'Ler estudo' é alcançável por Tab dentro da ficha | ✔ |  |
 | Acessibilidade | Foco visível (outline) em lombada, pílula e campo | ✔ |  |
 | Acessibilidade | Landmarks e rótulos: header, main, footer, label em todos os campos, botões com nome | ✔ |  |
 | Acessibilidade | Imagens de capa têm texto alternativo descritivo | ✔ |  |
-| Acessibilidade | Contraste mínimo 4.5:1 (texto e botão 'Ler estudo') nos temas claro e escuro | ✔ | {"light":{"contagem":5.29,"titulo":14.4,"pilula":1,"ink2":6.13,"muted":5.29,"mutedSuperficie":5.63,"botao":5.17},"dark":{"contagem":7.06,"titulo":12.84,"pilula":12.25,"ink2":9.62,"muted":7.06,"mutedSuperficie":6.23,"botao":6.27}} |
+| Acessibilidade | Contraste mínimo 4.5:1 (texto e botão 'Ler estudo') nos temas claro e escuro | ✔ | {"light":{"contagem":5.29,"titulo":14.4,"aba":14.4,"ink2":6.13,"muted":5.29,"mutedSuperficie":5.63,"botao":5.17},"dark":{"contagem":7.06,"titulo":12.84,"aba":12.84,"ink2":9.62,"muted":7.06,"mutedSuperficie":6.23,"botao":6.27}} |
 | Acessibilidade | Tema escuro: ficha abre e mantém o botão 'Ler estudo' visível | ✔ |  |
 | Responsivo | desktop-1920 (1920×1080): sem rolagem horizontal, conteúdo e filtros visíveis | ✔ |  |
 | Responsivo | desktop-1920: ficha abre, cabe na tela e mostra o botão 'Ler estudo' sem rolar | ✔ |  |
@@ -108,7 +114,9 @@ A referência (layoffsandhires.com/engineering) foi usada apenas como inspiraç�
 | Padrão da referência | Esta biblioteca |
 |---|---|
 | Estante de lombadas em perspectiva 3D | Igual em conceito: lombadas em perspectiva; a capa só aparece ao clicar no livro, com leve inclinação, cursor circular “Ver capa”/“Abrir” e vizinhos que se afastam sem ser cobertos |
-| Filtros em pílulas com indicador deslizante | Igual |
+| Filtros por categoria | Menu em abas, em uma linha, com traço verde deslizante, rótulos curtos (nome completo no tooltip e no leitor de tela) e rolagem horizontal no celular |
+| Cabeçalho | Logo, divisor e título “Biblioteca de estudos” em um bloco só; linha divisória só ao rolar; logo em cor única no tema escuro |
+| Abertura | Livros entram em sequência (respeita “reduzir movimento”), prateleira com sombra e leve foco de luz atrás da estante |
 | Detalhe enxuto | Ficha mínima: capa, categoria e ano, título, autores, resumo curto e um único botão “Ler estudo” |
 | Tema claro/escuro | Presente, com contraste ≥ 4,5:1 verificado (texto e botão) |
 | Identidade | Paleta e tipografia do site do Amazônia 2030 (Montserrat nos títulos, DM Sans no texto) e logotipo oficial no cabeçalho |

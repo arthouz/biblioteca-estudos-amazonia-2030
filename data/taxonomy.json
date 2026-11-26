@@ -1,12 +1,42 @@
 {
   "version": 1,
-  "note": "Categorias derivadas dos oito estudos efetivamente analisados. Para criar uma nova categoria, basta adicionar um item aqui e usar o 'id' nos estudos. A interface lê este arquivo em tempo de execução.",
+  "note": "Categorias derivadas dos estudos efetivamente analisados. Para criar uma nova categoria, adicione um item aqui (id, label, short opcional para o menu, description) e use o 'id' nos estudos. A interface lê este arquivo em tempo de execução.",
   "categories": [
-    { "id": "desmatamento-conservacao", "label": "Desmatamento e conservação", "description": "Dinâmica do desmatamento, riscos à floresta em pé e estratégias de conservação e recuperação de áreas." },
-    { "id": "infraestrutura-logistica", "label": "Infraestrutura e logística", "description": "Rodovias, ferrovias e hidrovias: acessibilidade, planejamento e priorização de obras." },
-    { "id": "agropecuaria-cadeias", "label": "Agropecuária e cadeias produtivas", "description": "Produtividade agrícola, cadeias de valor e atividades produtivas compatíveis com a floresta." },
-    { "id": "economia-desenvolvimento", "label": "Economia e desenvolvimento sustentável", "description": "Modelos de desenvolvimento econômico, emprego e renda associados à conservação." },
-    { "id": "governanca-politicas", "label": "Governança e políticas públicas", "description": "Desenho, foco e eficiência de instrumentos públicos de crédito, incentivos e planejamento." },
-    { "id": "desenvolvimento-social", "label": "Desenvolvimento social e trabalho", "description": "Progresso social, qualidade de vida e mercado de trabalho." }
+    {
+      "id": "desmatamento-conservacao",
+      "label": "Desmatamento e conservação",
+      "short": "Desmatamento",
+      "description": "Dinâmica do desmatamento, riscos à floresta em pé e estratégias de conservação e recuperação de áreas."
+    },
+    {
+      "id": "infraestrutura-logistica",
+      "label": "Infraestrutura e logística",
+      "short": "Infraestrutura",
+      "description": "Rodovias, ferrovias e hidrovias: acessibilidade, planejamento e priorização de obras."
+    },
+    {
+      "id": "agropecuaria-cadeias",
+      "label": "Agropecuária e cadeias produtivas",
+      "short": "Agropecuária",
+      "description": "Produtividade agrícola, cadeias de valor e atividades produtivas compatíveis com a floresta."
+    },
+    {
+      "id": "economia-desenvolvimento",
+      "label": "Economia e desenvolvimento sustentável",
+      "short": "Economia",
+      "description": "Modelos de desenvolvimento econômico, emprego e renda associados à conservação."
+    },
+    {
+      "id": "governanca-politicas",
+      "label": "Governança e políticas públicas",
+      "short": "Governança",
+      "description": "Desenho, foco e eficiência de instrumentos públicos de crédito, incentivos e planejamento."
+    },
+    {
+      "id": "desenvolvimento-social",
+      "label": "Desenvolvimento social e trabalho",
+      "short": "Social e trabalho",
+      "description": "Progresso social, qualidade de vida e mercado de trabalho."
+    }
   ]
 }

@@ -102,11 +102,11 @@ export function Shelf3D({ items, onOpen }: Props) {
         </button>
         <div className="shelf-scroller" ref={scroller}>
           <ul className="shelf-track" ref={track} onKeyDown={onKey}>
-            {items.map((p) => {
+            {items.map((p, i) => {
               const T = spineThickness(p.files.pages);
               const ratio = p.cover ? p.cover.width / p.cover.height : 0.707;
               const style = {
-                "--t0": T, "--ratio": ratio,
+                "--t0": T, "--ratio": ratio, "--i": i,
                 "--spine": p.cover?.spineColor ?? "#3a4a40", "--spine-ink": p.cover?.spineText ?? "#fff",
               } as CSSProperties;
               return (

@@ -23,13 +23,13 @@ interface Props {
 export function FilterBar(p: Props) {
   const { filters, onChange } = p;
   const groupRef = useRef<HTMLDivElement>(null);
-  const [ind, setInd] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
+  const [ind, setInd] = useState<{ x: number; w: number } | null>(null);
 
   useLayoutEffect(() => {
     const place = () => {
       const g = groupRef.current; if (!g) return;
       const el = g.querySelector<HTMLElement>('[aria-pressed="true"]');
-      if (el) setInd({ x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight });
+      if (el) { setInd({ x: el.offsetLeft, w: el.offsetWidth }); const wrap = g.parentElement; if (wrap) { const l = el.offsetLeft - 24, r = el.offsetLeft + el.offsetWidth + 24; if (l < wrap.scrollLeft) wrap.scrollTo({ left: Math.max(0, l), behavior: "smooth" }); else if (r > wrap.scrollLeft + wrap.clientWidth) wrap.scrollTo({ left: r - wrap.clientWidth, behavior: "smooth" }); } }
     };
     place();
     window.addEventListener("resize", place);
@@ -41,16 +41,16 @@ export function FilterBar(p: Props) {
   const extra = [filters.year, filters.territory, filters.institution].filter(Boolean).length + (p.sort !== "numero" ? 1 : 0);
   const set = (patch: Partial<Filters>) => onChange({ ...filters, ...patch });
   return (
-    <section className="filters wrap" aria-labelledby="page-title">
+    <section className="filters wrap" aria-label="Busca e filtros">
       <div className="filters-bar">
-        <h1 id="page-title">Biblioteca de estudos</h1>
-        <div className="spacer" />
         <label className="field-search">
           <span className="visually-hidden">Buscar</span>
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4" /></svg>
           <input type="search" value={filters.query} placeholder="Buscar" onChange={(e) => set({ query: e.target.value })} autoComplete="off" aria-label="Buscar" />
         </label>
+        <div className="spacer" />
         <button type="button" className="filters-toggle" aria-expanded={panel} aria-controls="filters-panel" onClick={() => setPanel((v) => !v)}>
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10" /><circle cx="16" cy="7" r="2" /><circle cx="8" cy="17" r="2" /></svg>
           Filtros{extra > 0 && <span className="filters-badge" aria-label={`${extra} ativos`}>{extra}</span>}
         </button>
         <div className="view-toggle" role="group" aria-label="Modo de visualização">
@@ -59,19 +59,17 @@ export function FilterBar(p: Props) {
         </div>
       </div>
 
-      <div className="filters-top">
-        <div className="pills-wrap">
-          <div className="pills" ref={groupRef} role="group" aria-label="Categorias temáticas">
-            {ind && <span className="pill-indicator" aria-hidden="true" style={{ transform: `translate(${ind.x}px, ${ind.y}px)`, width: ind.w, height: ind.h }} />}
-            <button type="button" className="pill" aria-pressed={filters.category === "todos"} onClick={() => set({ category: "todos" })}>
-              Todos
+      <div className="tabs-wrap">
+        <div className="tabs" ref={groupRef} role="group" aria-label="Categorias temáticas">
+          {ind && <span className="tab-indicator" aria-hidden="true" style={{ transform: `translateX(${ind.x}px)`, width: ind.w }} />}
+          <button type="button" className="tab" aria-pressed={filters.category === "todos"} onClick={() => set({ category: "todos" })}>
+            Todos
+          </button>
+          {p.categories.map((c) => (
+            <button type="button" key={c.id} className="tab" aria-pressed={filters.category === c.id} aria-label={c.label} title={c.description ? `${c.label}: ${c.description}` : c.label} onClick={() => set({ category: c.id })}>
+              {c.short ?? c.label}
             </button>
-            {p.categories.map((c) => (
-              <button type="button" key={c.id} className="pill" aria-pressed={filters.category === c.id} title={c.description} onClick={() => set({ category: c.id })}>
-                {c.label}
-              </button>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
 

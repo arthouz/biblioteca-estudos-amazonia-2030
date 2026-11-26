@@ -40,7 +40,7 @@ Regras de fidelidade: não inventar autores, datas, instituições, métodos ou 
 
 ## 3. Nova categoria
 
-Acrescente um item em `data/taxonomy.json` (`id`, `label`, `description`) e use o `id` nos estudos. Categorias sem nenhum estudo não aparecem nos filtros. Mantenha a taxonomia derivada do que os documentos de fato tratam.
+Acrescente um item em `data/taxonomy.json` (`id`, `label`, `short`, `description`; `short` é o rótulo curto exibido no menu, com 1 a 2 palavras, e `label` fica no tooltip e no leitor de tela) e use o `id` nos estudos. Categorias sem nenhum estudo não aparecem nos filtros. Mantenha a taxonomia derivada do que os documentos de fato tratam.
 
 ## 4. Corrigir ou remover
 

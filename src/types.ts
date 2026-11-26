@@ -49,7 +49,7 @@ export interface Publication {
   notes: string[];
 }
 
-export interface Category { id: string; label: string; description?: string }
+export interface Category { id: string; label: string; short?: string; description?: string }
 export interface Taxonomy { version: number; note?: string; categories: Category[] }
 export interface Collection { name: string; note?: string }
 export interface Library { collection: Collection; publications: Publication[]; taxonomy: Taxonomy }

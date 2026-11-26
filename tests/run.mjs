@@ -25,7 +25,7 @@ async function open(viewport = { width: 1440, height: 900 }, opts = {}) {
   return { ctx, page };
 }
 // Na estante o clique no livro puxa a capa; o clique na capa abre a ficha. No modo grade, o cartão abre direto.
-const openBook = async (page, sel) => { if (await page.locator(".book.is-pulled").count()) await page.click(".filters h1"); await page.click(sel); const cover = page.locator(".book.is-pulled .cover-hit"); if (await cover.count()) await cover.click(); };
+const openBook = async (page, sel) => { if (await page.locator(".book.is-pulled").count()) await page.click(".filters-bar"); await page.click(sel); const cover = page.locator(".book.is-pulled .cover-hit"); if (await cover.count()) await cover.click(); };
 const titles = async (page) => page.$$eval(".book-hit, .card", (els) => els.map((e) => e.getAttribute("aria-label")));
 const count = async (page) => (await page.$$(".book-hit, .card")).length;
 
@@ -63,9 +63,9 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   const { ctx, page } = await open();
   const status = () => page.locator(".result-count").innerText();
   const sel = (label) => page.locator(`label.field:has(.field-label:text-is("${label}")) select`);
-  const pill = (t) => page.locator(`.pill:has-text("${t}")`);
-  await step("Filtros", "Pílulas de categoria sem contadores e sem filtros avançados à vista", async () => {
-    eq(await page.locator(".pill .pill-count").count(), 0);
+  const pill = (t) => page.locator(`.tab:has-text("${t}")`);
+  await step("Filtros", "Menu de categorias sem contadores e sem filtros avançados à vista", async () => {
+    eq(await page.locator(".tab .tab-count").count(), 0);
     eq(await page.locator(".filters-panel").isVisible(), false);
     await page.click(".filters-toggle"); eq(await page.locator(".filters-panel").isVisible(), true);
   });
@@ -79,9 +79,9 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
     eq(n, 3);
   });
   await step("Filtros", "'Todos' restaura 9", async () => { await pill("Todos").click(); eq(await count(page), 9); });
-  await step("Filtros", "Indicador deslizante acompanha a pílula ativa", async () => {
+  await step("Filtros", "Traço verde deslizante acompanha a aba ativa", async () => {
     await pill("Governança").click(); await page.waitForTimeout(500);
-    const [i, p] = await Promise.all([page.locator(".pill-indicator").boundingBox(), pill("Governança").boundingBox()]);
+    const [i, p] = await Promise.all([page.locator(".tab-indicator").boundingBox(), pill("Governança").boundingBox()]);
     ok(Math.abs(i.x - p.x) < 3 && Math.abs(i.width - p.width) < 3, JSON.stringify([i, p])); await pill("Todos").click();
   });
   await step("Filtros", "Ano 2025 → apenas Rematamento Produtivo", async () => {
@@ -115,7 +115,7 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   await step("Filtros combinados", "'Limpar filtros' zera tudo e volta a 9", async () => {
     await page.locator('.state-box button:has-text("Limpar filtros")').click(); eq(await count(page), 9);
     eq(await page.inputValue('input[type="search"]'), ""); eq(await sel("Ano").inputValue(), "");
-    ok((await page.locator('.pill[aria-pressed="true"]').innerText()).startsWith("Todos"));
+    ok((await page.locator('.tab[aria-pressed="true"]').innerText()).startsWith("Todos"));
   });
   await step("Filtros", "Filtros refletidos na URL e restaurados ao recarregar", async () => {
     await search("pimenta"); await page.waitForTimeout(200); ok(page.url().includes("q=pimenta"), page.url());
@@ -226,6 +226,50 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
   await ctx.close();
 }
 
+// ---------- 4b. Cabeçalho unificado e menu de abas ----------
+{
+  const { ctx, page } = await open();
+  await step("Cabeçalho", "Logo, divisor e título 'Biblioteca de estudos' (h1) formam um só bloco no cabeçalho", async () => {
+    eq(await page.locator("header h1").innerText(), "Biblioteca de estudos");
+    eq(await page.locator(".filters h1").count(), 0);
+    const [l, t] = await Promise.all([page.locator(".wordmark-logo").boundingBox(), page.locator(".brand-title").boundingBox()]);
+    ok(Math.abs((l.y + l.height / 2) - (t.y + t.height / 2)) < 6, "logo e título desalinhados na vertical");
+    ok(l.height >= 44, `logo pequena: ${l.height}`);
+  });
+  await step("Menu", "Desktop: as 7 abas cabem em uma única linha, com rótulo curto e nome completo acessível", async () => {
+    const r = await page.$$eval(".tab", (els) => els.map((e) => [e.offsetTop, e.textContent, e.getAttribute("aria-label")]));
+    eq(r.length, 7); ok(new Set(r.map((x) => x[0])).size === 1, "abas em mais de uma linha");
+    ok(r.slice(1).every(([, t, a]) => a.length > t.length && a.toLowerCase().includes(t.split(" ")[0].toLowerCase().slice(0, 5))), JSON.stringify(r));
+    for (const c of ["Desmatamento", "Social e trabalho"]) ok(r.some((x) => x[1] === c), c);
+  });
+  await step("Menu", "Aba ativa tem traço verde (cor de destaque) e sem caixa ao redor", async () => {
+    const o = await page.evaluate(() => ({ ind: getComputedStyle(document.querySelector(".tab-indicator")).backgroundColor, acc: (() => { const d = document.createElement("i"); d.style.color = "var(--accent)"; document.body.appendChild(d); const c = getComputedStyle(d).color; d.remove(); return c; })(), box: getComputedStyle(document.querySelector(".tabs")).borderTopWidth }));
+    eq(o.ind, o.acc); eq(o.box, "0px");
+  });
+  await step("Tema escuro", "Logo vira uma peça de cor única, sem retângulo de fundo", async () => {
+    await page.click('button[aria-label^="Usar tema escuro"]'); await page.waitForTimeout(300);
+    const o = await page.locator(".wordmark-logo").evaluate((i) => { const c = getComputedStyle(i); return { bg: c.backgroundColor, f: c.filter }; });
+    ok(o.bg === "rgba(0, 0, 0, 0)" && o.f.includes("invert"), JSON.stringify(o));
+    await page.click('button[aria-label^="Usar tema claro"]');
+  });
+  await step("Cabeçalho", "A linha divisória do cabeçalho só aparece ao rolar a página", async () => {
+    const b0 = await page.locator(".site-header").evaluate((e) => getComputedStyle(e).borderBottomColor);
+    ok(b0 === "rgba(0, 0, 0, 0)", b0);
+    await page.click('.view-toggle button:has-text("Grade")'); await page.evaluate(() => window.scrollTo(0, 400)); await page.waitForTimeout(500);
+    ok(await page.locator(".site-header.is-scrolled").count() === 1, "is-scrolled");
+    await page.click('.view-toggle button:has-text("Estante")');
+  });
+  await ctx.close();
+  const m = await open({ width: 390, height: 844 }, { hasTouch: true, isMobile: true });
+  await step("Menu", "Celular: abas em uma linha rolável e as capas começam acima de 300 px (antes ~500 px)", async () => {
+    const o = await m.page.evaluate(() => { const w = document.querySelector(".tabs-wrap"); return { sw: w.scrollWidth, cw: w.clientWidth, h: w.getBoundingClientRect().height, card: document.querySelector(".card img, .book")?.getBoundingClientRect().top }; });
+    ok(o.sw > o.cw, "deveria rolar na horizontal"); ok(o.h < 56, `altura do menu ${o.h}`); ok(o.card < 300, `primeira capa em ${o.card}`);
+    await m.page.click('.tab:has-text("Social e trabalho")'); await m.page.waitForTimeout(600);
+    ok(await m.page.evaluate(() => { const a = document.querySelector('.tab[aria-pressed="true"]').getBoundingClientRect(); return a.left >= 0 && a.right <= innerWidth; }), "aba ativa deveria ficar visível");
+  });
+  await m.ctx.close();
+}
+
 // ---------- 5. Estados de erro ----------
 {
   const { ctx, page } = await open();
@@ -329,12 +373,12 @@ const count = async (page) => (await page.$$(".book-hit, .card")).length;
       const probe = document.createElement("div"); document.body.appendChild(probe);
       const v = (name, prop) => { probe.style[prop] = `var(${name})`; return getComputedStyle(probe)[prop]; };
       const bg = getComputedStyle(document.body).backgroundColor, out = {};
-      for (const [k, sel] of Object.entries({ contagem: ".result-count", titulo: "h1", pilula: ".pill" })) out[k] = ratio(getComputedStyle(document.querySelector(sel)).color, bg);
+      for (const [k, sel] of Object.entries({ contagem: ".result-count", titulo: "h1", aba: ".tab" })) out[k] = ratio(getComputedStyle(document.querySelector(sel)).color, bg);
       out.ink2 = ratio(v("--ink-2", "color"), bg); out.muted = ratio(v("--muted", "color"), bg);
       out.mutedSuperficie = ratio(v("--muted", "color"), v("--surface", "backgroundColor"));
       out.botao = ratio(v("--accent-ink", "color"), v("--accent", "backgroundColor"));
       probe.remove(); return out; });
-    const light = await calc(); await page.click('button[aria-label^="Usar tema escuro"]'); const dark = await calc();
+    const light = await calc(); await page.click('button[aria-label^="Usar tema escuro"]'); await page.waitForTimeout(500); const dark = await calc();
     await page.screenshot({ path: `${OUT}/desktop-tema-escuro.png` });
     await page.click('button[aria-label^="Usar tema claro"]');
     ok(Object.values({ ...light, ...dark }).every((v) => v >= 4.5), JSON.stringify({ light, dark })); return JSON.stringify({ light, dark });

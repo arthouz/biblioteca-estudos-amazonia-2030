@@ -1,14 +1,25 @@
+import { useEffect, useState } from "react";
 import { asset } from "../lib/data";
 
 interface Props { theme: "light" | "dark"; onToggleTheme: () => void }
 
 export function Header({ theme, onToggleTheme }: Props) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 8);
+    on(); window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, []);
   return (
-    <header className="site-header">
+    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="wrap site-header-in">
-        <a className="wordmark" href="#/" aria-label="Amazônia 2030 · Biblioteca de Estudos">
-          <img className="wordmark-logo" src={asset("brand/amazonia2030-logo.png")} width="380" height="159" alt="Amazônia 2030" />
-        </a>
+        <div className="brand">
+          <a className="wordmark" href="#/" aria-label="Amazônia 2030 · início">
+            <img className="wordmark-logo" src={asset("brand/amazonia2030-logo.png")} width="380" height="159" alt="Amazônia 2030" />
+          </a>
+          <span className="brand-sep" aria-hidden="true" />
+          <h1 id="page-title" className="brand-title">Biblioteca de estudos</h1>
+        </div>
         <nav className="header-actions" aria-label="Ações da página">
           <button type="button" className="btn-icon" onClick={onToggleTheme} aria-pressed={theme === "dark"} aria-label={theme === "dark" ? "Usar tema claro" : "Usar tema escuro"} title={theme === "dark" ? "Tema claro" : "Tema escuro"}>
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
